@@ -6,11 +6,101 @@
     <title>porto</title>
   </head>
 
-  <body class="bg-amber-100 lg:bg-[#212326] text-amber-100 font-mono">
- 
-    <div id="navbar-placeholder" class="sticky top-0 lg:top-1 backdrop-blur-sm mt-2 justify-center z-20"></div>
+  <body class="bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')] bg-top  text-amber-100 font-mono">
+    <div
+      id="navbar-placeholder"
+      class="sticky top-0 lg:top-1 justify-center z-30"
+    ></div>
 
-    <div id="main" class="relative z-30 lg:z-0 bg-[#212326] pt-10 rounded-t-4xl"></div>
+    <!-- bebek gw ini  -->
+    <div class="sticky top-2 z-10 flex justify-center backdrop-blur-sm border-2 p-5 my-3 rounded-md  w-auto lg:w-fit mx-7 lg:mx-auto">
+      <div class="relative z-10 ">
+        <div class="py-4">
+          <div class="w-full">
+            <div
+              class="text-black font-extrabold text-center text-2xl underline underline-offset-8s"
+            >
+              Select Your Character
+            </div>
+            <div
+              class="flex flex-col items-center rounded-sm "
+            >
+              <div class="h-64 w-64">
+                <model-viewer
+                  alt="duck"
+                  src="https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/lowpoly_duck_animated.glb"
+                  camera-controls
+                  touch-action="pan-y"
+                  class="w-full h-full"
+                  auto-rotate
+                  rotation-per-second="30deg"
+                  autoplay
+                  camera-orbit="45deg 60deg 3m"
+                >
+                </model-viewer>
+              </div>
+            </div>
+            <div class="text-amber-100 font-bold flex flex-col gap-3 m-2">
+              <div
+                class="font-extrabold flex gap-2 items-center bg-[#D23B7B] rounded-sm p-3 w-52"
+                id="lofi"
+              >
+                <div>Character :</div>
+                <a
+                  href="https://www.flaticon.com/free-icons/duck"
+                  title="duck icons"
+                >
+                  <img
+                    src="https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/profil.png"
+                    class="h-5 w-5"
+                    alt=""
+                /></a>
+                Lofi
+              </div>
+
+              <div
+                class="font-extrabold flex flex-col gap-2 bg-[#D23B7B] rounded-sm p-3 w-24"
+              >
+                <div>Skils :</div>
+              </div>
+
+              <div class="grid grid-cols-4 gap-2">
+                <div
+                  class="font-extrabold flex justify-center bg-[#831C91] rounded-sm p-2 text-xs items-center"
+                >
+                  <div></div>
+                  <div>JS</div>
+                </div>
+
+                <div
+                  class="font-extrabold flex justify-center bg-[#462C7D] rounded-sm p-2 text-xs items-center"
+                >
+                  <div></div>
+                  <div>Python</div>
+                </div>
+                <div
+                  class="font-extrabold flex justify-center bg-[#FCBF49] rounded-sm p-2 text-xs items-center"
+                >
+                  <div></div>
+                  <div>Tailwind</div>
+                </div>
+                <div
+                  class="font-extrabold flex justify-center bg-[#8494FF] rounded-sm p-2 text-xs items-center"
+                >
+                  <div></div>
+                  <div>Next.js</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="main"
+      class="relative z-40 lg:z-20 bg-[#212326] rounded-t-[50px] lg:rounded-t-[100px] "
+    ></div>
 
     <div class="bg-[#212326]" id="footer-placeholder"></div>
 
