@@ -32,22 +32,25 @@ navItems.forEach((item) => {
   });
 });
 
-const btnHome = document.getElementById("lofi");
-const btnProject = document.getElementById("project");
-const btnArt = document.getElementById("art");
-if (btnProject) {
-  btnProject.addEventListener("click", () => {
-    document.getElementById("main").innerHTML = project;
-  });
-}
-if (btnArt) {
-  btnArt.addEventListener("click", () => {
-    document.getElementById("main").innerHTML = art;
-  });
-}
-if (btnHome) {
-  btnHome.addEventListener("click", () => {
+const btnHome = document.querySelectorAll(".lofi");
+const btnProject = document.querySelectorAll(".project");
+const btnArt = document.querySelectorAll(".art");
+
+btnHome.forEach((btn) => {
+  btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = main;
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) {
+      rmBebek.classList.remove("hidden");
+    } else {
+    }
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.add(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+    } else {
+    }
 
     navItems.forEach((x) => {
       x.classList.remove(
@@ -58,5 +61,75 @@ if (btnHome) {
       );
     });
   });
-} else {
-}
+});
+
+btnProject.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.getElementById("main").innerHTML = project;
+
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) {
+      rmBebek.classList.add("hidden");
+    }
+
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.remove(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+      addBg.classList.add("bg-[#212326]");
+    }
+  });
+});
+
+btnArt.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.getElementById("main").innerHTML = art;
+
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) {
+      rmBebek.classList.add("hidden");
+    } else {
+    }
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.remove(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+      addBg.classList.add("bg-[#212326]");
+    }
+  });
+});
+
+const btnSource = document.querySelectorAll(".source");
+btnSource.forEach((y) => {
+  y.addEventListener("click", () => {
+    window.location.href = "https://github.com/DYTye";
+  });
+});
+
+// if (btnProject) {
+//   btnProject.addEventListener("click", () => {
+//     document.getElementById("main").innerHTML = project;
+//   });
+// }
+// if (btnArt) {
+//   btnArt.addEventListener("click", () => {
+//     document.getElementById("main").innerHTML = art;
+//   });
+// }
+// if (btnHome) {
+//   btnHome.addEventListener("click", () => {
+//     document.getElementById("main").innerHTML = main;
+
+//     navItems.forEach((x) => {
+//       x.classList.remove(
+//         "bg-amber-100",
+//         "text-black",
+//         "backdrop-blur-sm",
+//         "rounded-xl",
+//       );
+//     });
+//   });
+// } else {
+// }
