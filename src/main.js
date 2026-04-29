@@ -13,7 +13,7 @@ document.getElementById("footer-placeholder").innerHTML = footer;
 document.getElementById("main").innerHTML = main;
 
 const navItems = document.querySelectorAll(".nav-items");
-const bg = document.getElementById("lofi");
+const bg = document.getElementById("bg");
 
 navItems.forEach((nav) => {
   nav.addEventListener("click", () => {
@@ -41,6 +41,39 @@ if (navItems.length > 0) {
     bg.style.top = posisiBg.top - posisiParent.top + "px";
   }, 50);
 }
+
+
+const bgb = document.getElementById("bg-bot");
+
+navItems.forEach((nav) => {
+  nav.addEventListener("click", () => {
+    const posisiBgb = nav.getBoundingClientRect();
+    const posisiParentb = nav.parentElement.getBoundingClientRect();
+
+    bgb.style.width = posisiBgb.width + "px";
+    bgb.style.height = posisiBgb.height + "px";
+
+    bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
+    bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
+  });
+});
+
+if (navItems.length > 0) {
+  setTimeout(() => {
+    const nav = navItems[0]; 
+
+    const posisiBgb = nav.getBoundingClientRect();
+    const posisiParentb = nav.parentElement.getBoundingClientRect();
+
+    bgb.style.width = posisiBgb.width + "px";
+    bgb.style.height = posisiBgb.height + "px";
+    bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
+    bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
+  }, 50);
+}
+
+
+
 
 // navItems.forEach((item) => {
 //   item.addEventListener("click", () => {
