@@ -2,20 +2,22 @@
       <ul
         class="fixed bottom-0 right-0 left-0 z-40 grid grid-cols-5 justify-center items-center text-center rounded-t-xl bg-[#212326]/70 text-amber-100 backdrop-blur-sm"
       >
-        <li
-          class="font-extrabold flex gap-2 items-center bg-[#D23B7B] text-[#212326] p-3 backdrop-blur-sm rounded-xl lofi"
-        >
-          <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">
-            <img
-              src="https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/profil.png"
-              class="h-5 w-5"
-              alt=""
-          /></a>
-          Lofi
-        </li>
-        <li class="p-3 nav-items project">Project</li>
-        <li class="p-3 nav-items art">Sketch</li>
-        <li class="p-3 nav-items">Setup</li>
-        <li class="p-3 nav-items source">Source</li>
-      </ul>
-    </nav>
+    <li
+      id="lofi"
+      class="transition-all duration-300 absolute z-10 font-extrabold flex gap-2 items-center bg-[#D23B7B] p-6 backdrop-blur-sm rounded-xl lofi"
+    ></li>
+    <li class="p-3 z-20 lofi nav-items  flex items-center">
+      <img
+        src="https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/profil.png"
+        class="h-5 w-5"
+        alt=""
+      />
+      <span class="relative">Lofi</span>
+    </li>
+
+    <li class="transition-all duration-300 p-3 z-20 nav-items project"><div>Project</div></li>
+    <li class="transition-all duration-300 p-3 z-20 nav-items art">Sketch</li>
+    <li class="transition-all duration-300 p-3 z-20 nav-items">Setup</li>
+    <li class="transition-all duration-300 p-3 z-20 nav-items source">Source</li>
+  </ul>
+</nav>
