@@ -60,10 +60,10 @@ navItems.forEach((nav) => {
 
 if (navItems.length > 0) {
   setTimeout(() => {
-    const nav = navItems[0]; 
+    const navbt = navItems[5]; 
 
-    const posisiBgb = nav.getBoundingClientRect();
-    const posisiParentb = nav.parentElement.getBoundingClientRect();
+    const posisiBgb = navbt.getBoundingClientRect();
+    const posisiParentb = navbt.parentElement.getBoundingClientRect();
 
     bgb.style.width = posisiBgb.width + "px";
     bgb.style.height = posisiBgb.height + "px";
@@ -110,6 +110,7 @@ btnHome.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = main;
     const rmBebek = document.getElementById("bebek");
+    const footerdef = document.getElementById("footer-placeholder")
     if (rmBebek) {
       rmBebek.classList.remove("hidden");
     } else {
@@ -129,6 +130,10 @@ btnHome.forEach((btn) => {
         "backdrop-blur-sm",
         "rounded-xl",
       );
+
+      if (footerdef) {
+      footerdef.classList.remove("w-fit", "mx-auto", "rounded-md");
+    }
     });
   });
 });
