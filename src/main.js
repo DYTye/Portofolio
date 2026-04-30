@@ -123,20 +123,13 @@ btnHome.forEach((btn) => {
     } else {
     }
 
-    navItems.forEach((x) => {
-      x.classList.remove(
-        "bg-amber-100",
-        "text-black",
-        "backdrop-blur-sm",
-        "rounded-xl",
-      );
 
       if (footerdef) {
-      footerdef.classList.remove("w-fit", "mx-auto", "rounded-md");
+      footerdef.classList.remove("h-fit","w-fit", "mx-auto", "rounded-full", "bg-[#212326]/70", "backdrop-blur-sm", "text-amber-100");
     }
     });
   });
-});
+
 
 btnProject.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -149,13 +142,13 @@ btnProject.forEach((btn) => {
 
     const rmBg = document.getElementById("footer-placeholder");
     if (rmBg) {
-      rmBg.classList.add("w-fit", "mx-auto", "rounded-md");
+      rmBg.classList.add("h-fit","w-fit", "mx-auto", "rounded-full", "bg-[#212326]/70", "backdrop-blur-sm", "text-amber-100");
     }
 
     const slide = document.getElementById("slide");
     if (slide) {
       const foto = [];
-      foto.push("bgc.png", "kupi.png", "profil.png");
+      foto.push("bgc.png", "kupi.png", "https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp");
 
       let i = 0;
       setInterval(() => {
@@ -221,12 +214,3 @@ btnSource.forEach((y) => {
 //   });
 // } else {
 // }
-
-const foto = [];
-foto.push("bgc.png", "kupi.png", "profil.png");
-
-let i = 0;
-setInterval(() => {
-  foto.src = "foto[i]";
-  i++;
-}, 4000);

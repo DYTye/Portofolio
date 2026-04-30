@@ -1,56 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Test Animasi</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Animasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<body class="bg-gray-900 flex flex-col items-center justify-center h-screen gap-10 text-white">
-
-  <!-- BOX -->
-  <div
-    id="box"
-    class="w-64 h-64 bg-pink-500 flex items-center justify-center rounded-xl
-           transition-all duration-500 ease-in-out cursor-pointer"
+  <body
+    class="bg-gray-900 flex flex-col items-center justify-center h-screen gap-10 text-white"
   >
-    Klik Gue
-  </div>
+    <!-- BOX -->
+    <div
+      id="box"
+      class="w-64 h-64 bg-pink-500 flex items-center justify-center rounded-xl transition-all duration-500 ease-in-out cursor-pointer"
+    >
+      Klik Gue
+    </div>
 
-  <!-- BUTTON -->
-  <button
-    id="btn"
-    class="px-6 py-2 bg-blue-500 rounded-lg hover:bg-blue-600 transition"
-  >
-    Trigger Animasi
-  </button>
+    <div class="flex items-center rounded-sm">
+      <!-- Container utama yang nentuin rasio 16:9 -->
+      <div class="aspect-video w-full my-0 lg:my-10 overflow-hidden rounded-xl">
+        <!-- Langsung img sebagai anak dari aspect-video -->
+        <img
+          class="w-full h-full object-cover"
+          src="bgc.png"
+          alt="Slide"
+          id="slide"
+        />
+      </div>
+    </div>
+    <script>
+      const foto = [];
+      foto.push("bgc.png", "kupi.png", "profil.png");
 
-<span class="relative flex size-3">
-  <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-  <span class="relative inline-flex size-3 rounded-full bg-sky-500"></span>
-</span>
+      const slide = document.getElementById("slide");
+      let i = 0;
+      setInterval(() => {
+        slide.src = foto[i];
+        i++;
 
-<svg class="size-6 animate-bounce ...">
-  <!-- ... -->
-</svg>
+        if (i === foto.length) {
+          i = 0;
+        }
+      }, 1000);
 
-  <script>
-    const box = document.getElementById("box");
-    const btn = document.getElementById("btn");
+      const box = document.getElementById("box");
+      const btn = document.getElementById("btn");
 
-    function animateBox() {
-      box.classList.toggle("translate-x-[-300px]");
-      box.classList.toggle("rotate-6");
-      
-      
-    }
+      function animateBox() {
+        box.classList.toggle("translate-x-[300px]");
+        box.classList.toggle("rotate-6");
+        box.classList.toggle("opacity-50");
+        box.classList.toggle("scale-110");
+      }
 
-    // klik box
-    box.addEventListener("click", animateBox);
+      // klik box
+      box.addEventListener("click", animateBox);
 
-    // klik button
-    btn.addEventListener("click", animateBox);
-  </script>
-
-</body>
+      // klik button
+      btn.addEventListener("click", animateBox);
+    </script>
+  </body>
 </html>
