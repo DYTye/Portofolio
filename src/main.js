@@ -229,4 +229,4 @@ let i = 0;
 setInterval(() => {
   foto.src = "foto[i]";
   i++;
-}, 1000);
+}, 4000);
