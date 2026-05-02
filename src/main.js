@@ -6,6 +6,16 @@ import main from "./landing.html?raw";
 import project from "./project.html?raw";
 import art from "./art.html?raw";
 import botNav from "./bottomNav.html?raw";
+import p3d from "./assets/project/pasar3d.html?raw";
+import sidangpanic from "./assets/project/sidangpanic.html?raw";
+import bfod from "./assets/project/bfod.html?raw";
+import Swiper from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
 document.getElementById("navbar-placeholder").innerHTML = navbar;
 document.getElementById("botNav").innerHTML = botNav;
@@ -30,7 +40,7 @@ navItems.forEach((nav) => {
 
 if (navItems.length > 0) {
   setTimeout(() => {
-    const nav = navItems[0]; 
+    const nav = navItems[0];
 
     const posisiBg = nav.getBoundingClientRect();
     const posisiParent = nav.parentElement.getBoundingClientRect();
@@ -41,7 +51,6 @@ if (navItems.length > 0) {
     bg.style.top = posisiBg.top - posisiParent.top + "px";
   }, 50);
 }
-
 
 const bgb = document.getElementById("bg-bot");
 
@@ -60,7 +69,7 @@ navItems.forEach((nav) => {
 
 if (navItems.length > 0) {
   setTimeout(() => {
-    const navbt = navItems[5]; 
+    const navbt = navItems[5];
 
     const posisiBgb = navbt.getBoundingClientRect();
     const posisiParentb = navbt.parentElement.getBoundingClientRect();
@@ -72,36 +81,6 @@ if (navItems.length > 0) {
   }, 50);
 }
 
-
-
-
-// navItems.forEach((item) => {
-//   item.addEventListener("click", () => {
-//     navItems.forEach((x) => {
-//       x.classList.remove(
-//         "bg-amber-100",
-//         "text-black",
-//         "backdrop-blur-sm",
-//         "rounded-xl",
-//       );
-//     });
-
-//     item.classList.add(
-//       "bg-amber-100",
-//       "text-black",
-//       "backdrop-blur-sm",
-//       "rounded-xl",
-//     );
-//   });
-// });
-
-// const anim = document.getElementById("anim");
-// const bg = anim.querySelector("span");
-
-// anim.addEventListener("click", () => {
-//  bg.classList.toggle("translate-x-0")
-// });
-
 const btnHome = document.querySelectorAll(".lofi");
 const btnProject = document.querySelectorAll(".project");
 const btnArt = document.querySelectorAll(".art");
@@ -110,7 +89,7 @@ btnHome.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = main;
     const rmBebek = document.getElementById("bebek");
-    const footerdef = document.getElementById("footer-placeholder")
+    const footerdef = document.getElementById("footer-placeholder");
     if (rmBebek) {
       rmBebek.classList.remove("hidden");
     } else {
@@ -123,42 +102,84 @@ btnHome.forEach((btn) => {
     } else {
     }
 
-
-      if (footerdef) {
-      footerdef.classList.remove("h-fit","w-fit", "mx-auto", "rounded-full", "bg-[#212326]/70", "backdrop-blur-sm", "text-amber-100");
+    if (footerdef) {
+      footerdef.classList.remove(
+        "h-fit",
+        "w-fit",
+        "mx-auto",
+        "rounded-full",
+        "bg-[#212326]/70",
+        "backdrop-blur-sm",
+        "text-amber-100",
+      );
     }
-    });
   });
-
+});
 
 btnProject.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = project;
 
-    const rmBebek = document.getElementById("bebek");
-    if (rmBebek) {
-      rmBebek.classList.add("hidden");
+    const pasar = document.getElementById("pasar");
+    const bfod = document.getElementById("bfod");
+    const sp = document.getElementById("sp");
+
+    if (pasar && bfod && sp) {
+      pasar.innerHTML = p3d;
+      bfod.innerHTML = p3d;
+      sp.innerHTML = p3d;
+
+      
+        const swiperMain = new Swiper(".swiper-main", {
+          modules: [Navigation, Pagination],
+          loop: true,
+          observer: true,
+          observeParents: true,
+          watchSlidesProgress: true,
+
+          pagination: { el: ".main-pagination", clickable: true },
+          navigation: {
+            nextEl: ".main-next",
+            prevEl: ".main-prev",
+          },
+        });
+
+        const swiperProject = new Swiper(".swiper-project", {
+          modules: [Navigation, Pagination, Autoplay],
+          loop: true,
+          observer: true,
+          observeParents: true,
+          watchSlidesProgress: true,
+          addIcons:false,
+
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: true,
+          },
+
+          pagination: { el: ".project-pagination", clickable: true },
+          navigation: {
+            nextEl: ".project-next",
+            prevEl: ".project-prev",
+          },
+        });
+      
     }
+
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) rmBebek.classList.add("hidden");
 
     const rmBg = document.getElementById("footer-placeholder");
     if (rmBg) {
-      rmBg.classList.add("h-fit","w-fit", "mx-auto", "rounded-full", "bg-[#212326]/70", "backdrop-blur-sm", "text-amber-100");
-    }
-
-    const slide = document.getElementById("slide");
-    if (slide) {
-      const foto = [];
-      foto.push("bgc.png", "kupi.png", "https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp");
-
-      let i = 0;
-      setInterval(() => {
-        slide.src = foto[i];
-        i++;
-
-        if (i === foto.length) {
-          i = 0;
-        }
-      }, 1000);
+      rmBg.classList.add(
+        "h-fit",
+        "w-fit",
+        "mx-auto",
+        "rounded-full",
+        "bg-[#212326]/70",
+        "backdrop-blur-sm",
+        "text-amber-100",
+      );
     }
   });
 });
@@ -166,6 +187,27 @@ btnProject.forEach((btn) => {
 btnArt.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = art;
+    setTimeout(() => {
+      const swiper = new Swiper(".swiper", {
+        modules: [Navigation, Pagination], // Pastikan module ini masuk!
+        loop: true,
+        observer: true,
+        observeParents: true,
+        watchSlidesProgress: true, // Tambahin ini biar posisi slide lebih stabil
+
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // Tips: Paksa update sekali setelah inisialisasi
+      setTimeout(() => swiper.update(), 50);
+    }, 200); // Naikkan jeda dikit ke 200ms
 
     const rmBebek = document.getElementById("bebek");
     if (rmBebek) {
