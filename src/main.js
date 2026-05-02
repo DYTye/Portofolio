@@ -8,9 +8,10 @@ import art from "./art.html?raw";
 import botNav from "./bottomNav.html?raw";
 import p3d from "./assets/project/pasar3d.html?raw";
 import sidangpanic from "./assets/project/sidangpanic.html?raw";
-import bfod from "./assets/project/bfod.html?raw";
+import bfode from "./assets/project/bfod.html?raw";
 import Swiper from "swiper";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { gsap } from "gsap";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -107,11 +108,21 @@ btnHome.forEach((btn) => {
         "h-fit",
         "w-fit",
         "mx-auto",
-        "rounded-full",
+        "rounded-md",
         "bg-[#212326]/70",
         "backdrop-blur-sm",
         "text-amber-100",
       );
+    }
+    const animasiBebek = document.getElementById("bebek");
+    let cd = false;
+    if (animasiBebek) {
+      const flip = gsap.fromTo(
+        animasiBebek,
+        { rotationY: 0 },
+        { rotateY: 360, duration: 1, ease: "back.out(1.7)" },
+      );
+      flip.play();
     }
   });
 });
@@ -126,44 +137,44 @@ btnProject.forEach((btn) => {
 
     if (pasar && bfod && sp) {
       pasar.innerHTML = p3d;
-      bfod.innerHTML = p3d;
-      sp.innerHTML = p3d;
+      bfod.innerHTML = bfode;
+      sp.innerHTML = sidangpanic;
 
-      
-        const swiperMain = new Swiper(".swiper-main", {
-          modules: [Navigation, Pagination],
-          loop: true,
-          observer: true,
-          observeParents: true,
-          watchSlidesProgress: true,
+      const swiperMain = new Swiper(".swiper-main", {
+        modules: [Navigation, Pagination],
+        loop: true,
+        observer: true,
+        observeParents: true,
+        watchSlidesProgress: true,
+        autoHeight: true,
 
-          pagination: { el: ".main-pagination", clickable: true },
-          navigation: {
-            nextEl: ".main-next",
-            prevEl: ".main-prev",
-          },
-        });
+        pagination: { el: ".main-pagination", clickable: true },
+        navigation: {
+          nextEl: ".main-next",
+          prevEl: ".main-prev",
+        },
+      });
 
-        const swiperProject = new Swiper(".swiper-project", {
-          modules: [Navigation, Pagination, Autoplay],
-          loop: true,
-          observer: true,
-          observeParents: true,
-          watchSlidesProgress: true,
-          addIcons:false,
+      const swiperProject = new Swiper(".swiper-project", {
+        modules: [Navigation, Pagination, Autoplay],
+        loop: true,
+        observer: true,
+        observeParents: true,
+        watchSlidesProgress: true,
+        addIcons: false,
+        autoHeight: true,
 
-          autoplay: {
-            delay: 2000,
-            disableOnInteraction: true,
-          },
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: true,
+        },
 
-          pagination: { el: ".project-pagination", clickable: true },
-          navigation: {
-            nextEl: ".project-next",
-            prevEl: ".project-prev",
-          },
-        });
-      
+        pagination: { el: ".project-pagination", clickable: true },
+        navigation: {
+          nextEl: ".project-next",
+          prevEl: ".project-prev",
+        },
+      });
     }
 
     const rmBebek = document.getElementById("bebek");
@@ -175,12 +186,35 @@ btnProject.forEach((btn) => {
         "h-fit",
         "w-fit",
         "mx-auto",
-        "rounded-full",
+        "rounded-md",
         "bg-[#212326]/70",
         "backdrop-blur-sm",
         "text-amber-100",
       );
     }
+
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.remove("bg-[#212326]");
+      addBg.classList.add(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+    }
+
+    const animasi = document.getElementById("anima");
+    const playanimasi = gsap.fromTo(
+      animasi,
+      { y: 50, opacity: 0 },
+      {
+        duration: 0.7,
+        y: 0,
+        ease: "back.out(1.7)",
+        opacity: 1,
+        ease: "expo.out",
+        overwrite: "auto",
+      },
+    );
+    playanimasi.play();
   });
 });
 
@@ -205,9 +239,8 @@ btnArt.forEach((btn) => {
         },
       });
 
-      // Tips: Paksa update sekali setelah inisialisasi
       setTimeout(() => swiper.update(), 50);
-    }, 200); // Naikkan jeda dikit ke 200ms
+    }, 200);
 
     const rmBebek = document.getElementById("bebek");
     if (rmBebek) {
@@ -230,6 +263,32 @@ btnSource.forEach((y) => {
     window.location.href = "https://github.com/DYTye";
   });
 });
+
+const animasiBebek = document.getElementById("bebek");
+let cd = false;
+if (animasiBebek) {
+  const flip = gsap.fromTo(
+    animasiBebek,
+    { rotationY: 0 },
+    { rotateY: 360, duration: 1, ease: "back.out(1.7)" },
+  );
+  flip.play();
+  animasiBebek.addEventListener("mouseenter", () => {
+    if (cd) return;
+
+    cd = true;
+    const flip = gsap.fromTo(
+      animasiBebek,
+      { rotationY: 0 },
+      { rotateY: 360, duration: 1, ease: "back.out(1.7)" },
+    );
+    flip.play();
+
+    setTimeout(() => {
+      cd = false;
+    }, 2000);
+  });
+}
 
 // if (btnProject) {
 //   btnProject.addEventListener("click", () => {
