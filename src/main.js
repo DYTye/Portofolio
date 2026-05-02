@@ -124,6 +124,10 @@ btnHome.forEach((btn) => {
       );
       flip.play();
     }
+    const glass = document.getElementById("glass");
+    if (glass) {
+      glass.classList.remove("opacity-100");
+    }
   });
 });
 
@@ -196,9 +200,16 @@ btnProject.forEach((btn) => {
     const addBg = document.getElementById("body");
     if (addBg) {
       addBg.classList.remove("bg-[#212326]");
-      addBg.classList.add(
-        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-      );
+
+      // addBg.classList.add(
+      //   "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+
+      // );
+    }
+
+    const glass = document.getElementById("glass");
+    if (glass) {
+      glass.classList.add("opacity-100");
     }
 
     const animasi = document.getElementById("anima");
