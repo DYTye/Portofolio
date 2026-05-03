@@ -28,6 +28,21 @@ document.getElementById("main").innerHTML = main;
 const navItems = document.querySelectorAll(".nav-items");
 const bg = document.getElementById("bg");
 
+
+const loading = document.getElementById("loading");
+if(loading) {
+  // loading.classList.add("opacity-100")
+
+
+  gsap.to(loading,{
+    opacity:0,
+    duration: 1.5,
+    ease : "power2.inOut",
+    onComplete: () => {
+      loading.style.display ="none";
+    }
+  });
+} 
 navItems.forEach((nav) => {
   nav.addEventListener("click", () => {
     const posisiBg = nav.getBoundingClientRect();
