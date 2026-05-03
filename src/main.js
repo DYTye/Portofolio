@@ -28,22 +28,20 @@ document.getElementById("main").innerHTML = main;
 const navItems = document.querySelectorAll(".nav-items");
 const bg = document.getElementById("bg");
 
-
 const loading = document.getElementById("loading");
-if(loading) {
+if (loading) {
   // loading.classList.add("opacity-100")
 
-
-  gsap.to(loading,{
-    opacity:0,
+  gsap.to(loading, {
+    opacity: 0,
     duration: 0.8,
-    delay :1.2,
-    ease : "power2.inOut",
+    delay: 1.2,
+    ease: "power2.inOut",
     onComplete: () => {
-      loading.style.display ="none";
-    }
+      loading.style.display = "none";
+    },
   });
-} 
+}
 navItems.forEach((nav) => {
   nav.addEventListener("click", () => {
     const posisiBg = nav.getBoundingClientRect();
@@ -138,7 +136,7 @@ btnHome.forEach((btn) => {
       const flip = gsap.fromTo(
         animasiBebek,
         { rotationY: 0 },
-        { rotateY: 360, duration: 1, ease: "back.out(1.7)" },
+        { rotateY: 360, duration: 1, ease: "back.out(1.5)" },
       );
       flip.play();
     }
@@ -149,13 +147,22 @@ btnHome.forEach((btn) => {
   });
 });
 
+
+let swiperProjectInstance = null;
+let swiperMainInstance = null;
 btnProject.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = project;
 
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) rmBebek.classList.add("hidden");
+
     const pasar = document.getElementById("pasar");
     const bfod = document.getElementById("bfod");
     const sp = document.getElementById("sp");
+
+    if (swiperProjectInstance) swiperProjectInstance.destroy(true, true);
+    if (swiperMainInstance) swiperMainInstance.destroy(true, true);
 
     if (pasar && bfod && sp) {
       pasar.innerHTML = p3d;
@@ -199,9 +206,6 @@ btnProject.forEach((btn) => {
       });
     }
 
-    const rmBebek = document.getElementById("bebek");
-    if (rmBebek) rmBebek.classList.add("hidden");
-
     const rmBg = document.getElementById("footer-placeholder");
     if (rmBg) {
       rmBg.classList.add(
@@ -236,7 +240,7 @@ btnProject.forEach((btn) => {
       {
         duration: 0.5,
         y: 0,
-        ease: "back.out(0.5)",
+        ease: "back.out(2.5)",
         opacity: 1,
       },
     );
