@@ -217,12 +217,10 @@ btnProject.forEach((btn) => {
       animasi,
       { y: 50, opacity: 0 },
       {
-        duration: 0.7,
+        duration: 0.5,
         y: 0,
-        ease: "back.out(1.7)",
+        ease: "back.out(0.5)",
         opacity: 1,
-        ease: "expo.out",
-        overwrite: "auto",
       },
     );
     playanimasi.play();
