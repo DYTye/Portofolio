@@ -19,13 +19,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-
-document.addEventListener("DOMContentLoaded",()=>{
 document.getElementById("navbar-placeholder").innerHTML = navbar;
 document.getElementById("botNav").innerHTML = botNav;
+
+document.addEventListener("DOMContentLoaded",()=>{
 document.getElementById("footer-placeholder").innerHTML = footer;
 document.getElementById("main").innerHTML = main;
-
 });
 
 const navItems = document.querySelectorAll(".nav-items");
