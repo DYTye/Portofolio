@@ -19,14 +19,18 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-document.getElementById("navbar-placeholder").innerHTML = navbar;
-document.getElementById("botNav").innerHTML = botNav;
+
 
 document.addEventListener("DOMContentLoaded",()=>{
 document.getElementById("footer-placeholder").innerHTML = footer;
 document.getElementById("main").innerHTML = main;
+document.getElementById("navbar-placeholder").innerHTML = navbar;
+document.getElementById("botNav").innerHTML = botNav;
+
+navbarRun();
 });
 
+function navbarRun(){
 const navItems = document.querySelectorAll(".nav-items");
 const bg = document.getElementById("bg");
 
@@ -314,6 +318,9 @@ btnSetup.forEach((z) =>
     }
   }),
 );
+}
+
+
 
 const animasiBebek = document.getElementById("bebek");
 let cd = false;
