@@ -8,6 +8,7 @@ import art from "./art.html?raw";
 import botNav from "./bottomNav.html?raw";
 import p3d from "./assets/project/pasar3d.html?raw";
 import sidangpanic from "./assets/project/sidangpanic.html?raw";
+import setup from "./setup.html?raw";
 import bfode from "./assets/project/bfod.html?raw";
 import Swiper from "swiper";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -201,10 +202,9 @@ btnProject.forEach((btn) => {
     if (addBg) {
       addBg.classList.remove("bg-[#212326]");
 
-      // addBg.classList.add(
-      //   "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-
-      // );
+      addBg.classList.add(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
     }
 
     const glass = document.getElementById("glass");
@@ -274,6 +274,25 @@ btnSource.forEach((y) => {
     window.location.href = "https://github.com/DYTye";
   });
 });
+
+const btnSetup = document.querySelectorAll(".setup");
+btnSetup.forEach((z) =>
+  z.addEventListener("click", () => {
+    document.getElementById("main").innerHTML = setup;
+
+    const hidebebek = document.getElementById("bebek");
+    if (hidebebek) {
+      hidebebek.classList.add("hidden");
+    }
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.remove(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+      addBg.classList.add("bg-[#212326]");
+    }
+  }),
+);
 
 const animasiBebek = document.getElementById("bebek");
 let cd = false;
