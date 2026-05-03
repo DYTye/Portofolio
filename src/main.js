@@ -36,7 +36,8 @@ if(loading) {
 
   gsap.to(loading,{
     opacity:0,
-    duration: 1.5,
+    duration: 0.8,
+    delay :1.2,
     ease : "power2.inOut",
     onComplete: () => {
       loading.style.display ="none";
