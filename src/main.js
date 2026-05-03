@@ -13,6 +13,7 @@ import bfode from "./assets/project/bfod.html?raw";
 import Swiper from "swiper";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { gsap } from "gsap";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import "swiper/css";
 import "swiper/css/pagination";
