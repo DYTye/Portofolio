@@ -258,20 +258,23 @@ btnArt.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = art;
     setTimeout(() => {
-      const swiper = new Swiper(".swiper", {
-        modules: [Navigation, Pagination], // Pastikan module ini masuk!
+      const swiperProject = new Swiper(".swiper-project", {
+        modules: [Navigation, Pagination, Autoplay],
         loop: true,
         observer: true,
         observeParents: true,
-        watchSlidesProgress: true, // Tambahin ini biar posisi slide lebih stabil
+        watchSlidesProgress: true,
+        addIcons: false,
 
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: true,
         },
+
+        pagination: { el: ".project-pagination", clickable: true },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: ".project-next",
+          prevEl: ".project-prev",
         },
       });
 
