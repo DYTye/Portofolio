@@ -168,51 +168,51 @@ function renderProject() {
     bfod.innerHTML = bfode;
     sp.innerHTML = sidangpanic;
   }
-  const swiperMain = new Swiper(".swiper-main", {
-    modules: [Navigation, Pagination],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
+  // const swiperMain = new Swiper(".swiper-main", {
+  //   modules: [Navigation, Pagination],
+  //   loop: true,
+  //   observer: true,
+  //   observeParents: true,
+  //   watchSlidesProgress: true,
 
-    pagination: { el: ".main-pagination", clickable: true },
-    navigation: {
-      nextEl: ".main-next",
-      prevEl: ".main-prev",
-    },
-  });
-
-  const swiperProject = new Swiper(".swiper-project", {
-    modules: [Navigation, Pagination, Autoplay],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
-    addIcons: false,
-
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: true,
-    },
-
-    pagination: { el: ".project-pagination", clickable: true },
-    navigation: {
-      nextEl: ".project-next",
-      prevEl: ".project-prev",
-    },
-  });
-  // const animasi = document.getElementById("anima");
-  // const playanimasi = gsap.fromTo(
-  //   animasi,
-  //   { y: 50, opacity: 0 },
-  //   {
-  //     duration: 0.5,
-  //     y: 0,
-  //     ease: "back.out(2.5)",
-  //     opacity: 1,
+  //   pagination: { el: ".main-pagination", clickable: true },
+  //   navigation: {
+  //     nextEl: ".main-next",
+  //     prevEl: ".main-prev",
   //   },
-  // );
-  // playanimasi.play();
+  // });
+
+  // const swiperProject = new Swiper(".swiper-project", {
+  //   modules: [Navigation, Pagination, Autoplay],
+  //   loop: true,
+  //   observer: true,
+  //   observeParents: true,
+  //   watchSlidesProgress: true,
+  //   addIcons: false,
+
+  //   autoplay: {
+  //     delay: 1000,
+  //     disableOnInteraction: true,
+  //   },
+
+  //   pagination: { el: ".project-pagination", clickable: true },
+  //   navigation: {
+  //     nextEl: ".project-next",
+  //     prevEl: ".project-prev",
+  //   },
+  // });
+  const animasi = document.getElementById("anima");
+  const playanimasi = gsap.fromTo(
+    animasi,
+    { y: 50, opacity: 0 },
+    {
+      duration: 0.5,
+      y: 0,
+      ease: "back.out(2.5)",
+      opacity: 1,
+    },
+  );
+  playanimasi.play();
 
   const rmBebek = document.getElementById("bebek");
   if (rmBebek) rmBebek.classList.add("hidden");
