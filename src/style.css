@@ -1,14 +1,2 @@
 @import "tailwindcss";
 
-@layer base {
-  #main {
-    @apply overflow-x-hidden; /* Pake apply biar sinkron sama Tailwind */
-    
-    /* Properti yang gak ada di Tailwind standar, tulis manual */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-    -webkit-overflow-scrolling: touch;
-  }
-}
