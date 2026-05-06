@@ -27,6 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("botNav").innerHTML = botNav;
 
   navbarRun();
+});
+
+window.addEventListener("load", () => {
+  const loading = document.getElementById("loading");
+
   if (loading) {
     gsap.to(loading, {
       opacity: 0,
@@ -45,9 +50,6 @@ function navbarRun() {
   const navItems = document.querySelectorAll(".nav-items");
   const bg = document.getElementById("bg");
 
-  window.addEventListener("load", () => {
-    const loading = document.getElementById("loading");
-  });
   navItems.forEach((nav) => {
     nav.addEventListener("click", () => {
       const posisiBg = nav.getBoundingClientRect();
