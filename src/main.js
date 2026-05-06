@@ -27,19 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("botNav").innerHTML = botNav;
 
   navbarRun();
+  if (loading) {
+    gsap.to(loading, {
+      opacity: 0,
+      duration: 1,
+      delay: 0.5,
+      ease: "power2.inOut",
+      onComplete: () => {
+        loading.style.display = "none";
+        bebekAwal();
+      },
+    });
+  }
 });
-if (loading) {
-  gsap.to(loading, {
-    opacity: 0,
-    duration: 1,
-    delay: 0.5,
-    ease: "power2.inOut",
-    onComplete: () => {
-      loading.style.display = "none";
-      bebekAwal();
-    },
-  });
-}
 
 function navbarRun() {
   const navItems = document.querySelectorAll(".nav-items");
