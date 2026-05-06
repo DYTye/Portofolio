@@ -27,15 +27,16 @@ document.getElementById("main").innerHTML = main;
 document.getElementById("navbar-placeholder").innerHTML = navbar;
 document.getElementById("botNav").innerHTML = botNav;
 
-navbarRun();
+
 });
 
-function navbarRun(){
 const navItems = document.querySelectorAll(".nav-items");
 const bg = document.getElementById("bg");
 
 const loading = document.getElementById("loading");
 if (loading) {
+  // loading.classList.add("opacity-100")
+
   gsap.to(loading, {
     opacity: 0,
     duration: 0.8,
@@ -73,13 +74,41 @@ if (navItems.length > 0) {
   }, 50);
 }
 
+const bgb = document.getElementById("bg-bot");
 
+navItems.forEach((nav) => {
+  nav.addEventListener("click", () => {
+    const posisiBgb = nav.getBoundingClientRect();
+    const posisiParentb = nav.parentElement.getBoundingClientRect();
+
+    bgb.style.width = posisiBgb.width + "px";
+    bgb.style.height = posisiBgb.height + "px";
+
+    bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
+    bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
+  });
+});
+
+if (navItems.length > 0) {
+  setTimeout(() => {
+    const navbt = navItems[5];
+
+    const posisiBgb = navbt.getBoundingClientRect();
+    const posisiParentb = navbt.parentElement.getBoundingClientRect();
+
+    bgb.style.width = posisiBgb.width + "px";
+    bgb.style.height = posisiBgb.height + "px";
+    bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
+    bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
+  }, 50);
+}
 
 const btnHome = document.querySelectorAll(".lofi");
 const btnProject = document.querySelectorAll(".project");
 const btnArt = document.querySelectorAll(".art");
 
-function renderHome() {
+btnHome.forEach((btn) => {
+  btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = main;
     const rmBebek = document.getElementById("bebek");
     const footerdef = document.getElementById("footer-placeholder");
@@ -120,10 +149,14 @@ function renderHome() {
     if (glass) {
       glass.classList.remove("opacity-100");
     }
-};
+  });
+});
 
-function renderProject(){
-  
+
+let swiperProjectInstance = null;
+let swiperMainInstance = null;
+btnProject.forEach((btn) => {
+  btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = project;
 
     const rmBebek = document.getElementById("bebek");
@@ -133,7 +166,8 @@ function renderProject(){
     const bfod = document.getElementById("bfod");
     const sp = document.getElementById("sp");
 
-
+    if (swiperProjectInstance) swiperProjectInstance.destroy(true, true);
+    if (swiperMainInstance) swiperMainInstance.destroy(true, true);
 
     if (pasar && bfod && sp) {
       pasar.innerHTML = p3d;
@@ -216,10 +250,11 @@ function renderProject(){
       },
     );
     playanimasi.play();
-  
-};
-function renderArt(){
-  
+  });
+});
+
+btnArt.forEach((btn) => {
+  btn.addEventListener("click", () => {
     document.getElementById("main").innerHTML = art;
     setTimeout(() => {
       const swiperProject = new Swiper(".swiper-project", {
@@ -257,12 +292,19 @@ function renderArt(){
       );
       addBg.classList.add("bg-[#212326]");
     }
-  
-};
-function renderSetup(){
-  const btnSetup = document.querySelectorAll(".setup");
+  });
+});
 
- 
+const btnSource = document.querySelectorAll(".source");
+btnSource.forEach((y) => {
+  y.addEventListener("click", () => {
+    window.location.href = "https://github.com/DYTye";
+  });
+});
+
+const btnSetup = document.querySelectorAll(".setup");
+btnSetup.forEach((z) =>
+  z.addEventListener("click", () => {
     document.getElementById("main").innerHTML = setup;
 
     const hidebebek = document.getElementById("bebek");
@@ -276,45 +318,9 @@ function renderSetup(){
       );
       addBg.classList.add("bg-[#212326]");
     }
-};
+  }),
+);
 
-document.addEventListener("click",(e)=>{
-  if(e.target.closest(".lofi")){
-    renderHome();
-  }
-  if (e.target.closest(".project")) {
-    renderProject();
-  }
-
-  
-  if (e.target.closest(".art")) {
-    renderArt();
-  }
-  if (e.target.closest(".setup")){
-    renderSetup();
-  }
-
-})
-
-const btnSource = document.querySelectorAll(".source");
-btnSource.forEach((y) => {
-  y.addEventListener("click", () => {
-    window.location.href = "https://github.com/DYTye";
-  });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-}
 
 
 
