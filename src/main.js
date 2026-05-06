@@ -143,6 +143,7 @@ function renderHome() {
 }
 
 function renderProject() {
+  window.scrollTo(0,0);
   document.getElementById("main").innerHTML = project;
 
   const rmBebek = document.getElementById("bebek");
@@ -235,6 +236,7 @@ function renderProject() {
   playanimasi.play();
 }
 function renderArt() {
+  window.scrollTo(0,0);
   document.getElementById("main").innerHTML = art;
   setTimeout(() => {
     const swiperProject = new Swiper(".swiper-project", {
@@ -274,6 +276,7 @@ function renderArt() {
   }
 }
 function renderSetup() {
+  window.scrollTo(0,0);
   const btnSetup = document.querySelectorAll(".setup");
 
   document.getElementById("main").innerHTML = setup;
