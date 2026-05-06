@@ -159,12 +159,9 @@ function renderProject() {
   window.scrollTo(0, 0);
   swiperDestroy();
 
-  setTimeout(()=>{
-    const pasar = document.getElementById("pasar");
+  const pasar = document.getElementById("pasar");
   const bfod = document.getElementById("bfod");
   const sp = document.getElementById("sp");
-
-
 
   if (pasar && bfod && sp) {
     pasar.innerHTML = p3d;
@@ -243,14 +240,12 @@ function renderProject() {
   const glass = document.getElementById("glass");
   if (glass) {
     glass.classList.add("opacity-100", "bg-[#212326]", "lg:bg-[#212326]/70");
-    
+
     if (window.innerWidth < 1024) {
       addBg.classList.remove("bg-[url('/public/bgc.webp')]");
-      animasi.classList.remove("rounded-3xl")
+      animasi.classList.remove("rounded-3xl");
     }
   }
-  },50)
-  
 }
 function renderArt() {
   document.getElementById("main").innerHTML = art;
