@@ -29,10 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   navbarRun();
 });
 
-function navbarRun() {
-  const navItems = document.querySelectorAll(".nav-items");
-  const bg = document.getElementById("bg");
-
 window.addEventListener("load", () => {
   const loading = document.getElementById("loading");
   
@@ -49,6 +45,11 @@ window.addEventListener("load", () => {
     });
   }
 });
+
+function navbarRun() {
+  const navItems = document.querySelectorAll(".nav-items");
+  const bg = document.getElementById("bg");
+
   navItems.forEach((nav) => {
     nav.addEventListener("click", () => {
       const posisiBg = nav.getBoundingClientRect();
