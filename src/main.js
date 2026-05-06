@@ -37,8 +37,8 @@ function navbarRun() {
   if (loading) {
     gsap.to(loading, {
       opacity: 0,
-      duration: 0.8,
-      delay: 1.2,
+      duration: 1,
+      delay: 1.5,
       ease: "power2.inOut",
       onComplete: () => {
         loading.style.display = "none";
