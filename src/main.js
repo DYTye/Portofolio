@@ -201,18 +201,18 @@ function renderProject() {
       prevEl: ".project-prev",
     },
   });
-  const animasi = document.getElementById("anima");
-  const playanimasi = gsap.fromTo(
-    animasi,
-    { y: 50, opacity: 0 },
-    {
-      duration: 0.5,
-      y: 0,
-      ease: "back.out(2.5)",
-      opacity: 1,
-    },
-  );
-  playanimasi.play();
+  // const animasi = document.getElementById("anima");
+  // const playanimasi = gsap.fromTo(
+  //   animasi,
+  //   { y: 50, opacity: 0 },
+  //   {
+  //     duration: 0.5,
+  //     y: 0,
+  //     ease: "back.out(2.5)",
+  //     opacity: 1,
+  //   },
+  // );
+  // playanimasi.play();
 
   const rmBebek = document.getElementById("bebek");
   if (rmBebek) rmBebek.classList.add("hidden");
