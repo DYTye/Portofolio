@@ -33,20 +33,22 @@ function navbarRun() {
   const navItems = document.querySelectorAll(".nav-items");
   const bg = document.getElementById("bg");
 
+window.addEventListener("load", () => {
   const loading = document.getElementById("loading");
+  
   if (loading) {
     gsap.to(loading, {
       opacity: 0,
       duration: 1,
-      delay: 1.5,
+      delay: 0.5, 
       ease: "power2.inOut",
       onComplete: () => {
         loading.style.display = "none";
-
         bebekAwal();
       },
     });
   }
+});
   navItems.forEach((nav) => {
     nav.addEventListener("click", () => {
       const posisiBg = nav.getBoundingClientRect();
