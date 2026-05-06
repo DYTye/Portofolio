@@ -144,94 +144,95 @@ function renderHome() {
 
 function renderProject() {
   document.getElementById("main").innerHTML = project;
-  const pasar = document.getElementById("pasar");
-  const bfod = document.getElementById("bfod");
-  const sp = document.getElementById("sp");
-
-  if (pasar && bfod && sp) {
-    pasar.innerHTML = p3d;
-    bfod.innerHTML = bfode;
-    sp.innerHTML = sidangpanic;
-  }
-  const swiperMain = new Swiper(".swiper-main", {
-    modules: [Navigation, Pagination],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
-    autoHeight: true,
-
-    pagination: { el: ".main-pagination", clickable: true },
-    navigation: {
-      nextEl: ".main-next",
-      prevEl: ".main-prev",
-    },
-  });
-
-  const swiperProject = new Swiper(".swiper-project", {
-    modules: [Navigation, Pagination, Autoplay],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
-    addIcons: false,
-    autoHeight: true,
-
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: true,
-    },
-
-    pagination: { el: ".project-pagination", clickable: true },
-    navigation: {
-      nextEl: ".project-next",
-      prevEl: ".project-prev",
-    },
-  });
-  const animasi = document.getElementById("anima");
-  const playanimasi = gsap.fromTo(
-    animasi,
-    { y: 50, opacity: 0 },
-    {
-      duration: 0.5,
-      y: 0,
-      ease: "back.out(2.5)",
-      opacity: 1,
-    },
-  );
-  playanimasi.play();
-
-  const rmBebek = document.getElementById("bebek");
-  if (rmBebek) rmBebek.classList.add("hidden");
-
-  const rmBg = document.getElementById("footer-placeholder");
-  if (rmBg) {
-    rmBg.classList.add(
-      "h-fit",
-      "w-fit",
-      "mx-auto",
-      "rounded-md",
-      "bg-[#212326]/70",
-      "backdrop-blur-sm",
-      "text-amber-100",
-    );
-  }
-
-  const addBg = document.getElementById("body");
-  if (addBg) {
-    addBg.classList.remove("bg-[#212326]");
-
-    addBg.classList.add(
-      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-    );
-  }
-
-  const glass = document.getElementById("glass");
-  if (glass) {
-    glass.classList.add("opacity-100");
-  }
-
   window.scrollTo(0, 0);
+  setTimeout(() => {
+    const pasar = document.getElementById("pasar");
+    const bfod = document.getElementById("bfod");
+    const sp = document.getElementById("sp");
+
+    if (pasar && bfod && sp) {
+      pasar.innerHTML = p3d;
+      bfod.innerHTML = bfode;
+      sp.innerHTML = sidangpanic;
+    }
+    const swiperMain = new Swiper(".swiper-main", {
+      modules: [Navigation, Pagination],
+      loop: true,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      autoHeight: true,
+
+      pagination: { el: ".main-pagination", clickable: true },
+      navigation: {
+        nextEl: ".main-next",
+        prevEl: ".main-prev",
+      },
+    });
+
+    const swiperProject = new Swiper(".swiper-project", {
+      modules: [Navigation, Pagination, Autoplay],
+      loop: true,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      addIcons: false,
+      autoHeight: true,
+
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+
+      pagination: { el: ".project-pagination", clickable: true },
+      navigation: {
+        nextEl: ".project-next",
+        prevEl: ".project-prev",
+      },
+    });
+    const animasi = document.getElementById("anima");
+    const playanimasi = gsap.fromTo(
+      animasi,
+      { y: 50, opacity: 0 },
+      {
+        duration: 0.5,
+        y: 0,
+        ease: "back.out(2.5)",
+        opacity: 1,
+      },
+    );
+    playanimasi.play();
+
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) rmBebek.classList.add("hidden");
+
+    const rmBg = document.getElementById("footer-placeholder");
+    if (rmBg) {
+      rmBg.classList.add(
+        "h-fit",
+        "w-fit",
+        "mx-auto",
+        "rounded-md",
+        "bg-[#212326]/70",
+        "backdrop-blur-sm",
+        "text-amber-100",
+      );
+    }
+
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.remove("bg-[#212326]");
+
+      addBg.classList.add(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+    }
+
+    const glass = document.getElementById("glass");
+    if (glass) {
+      glass.classList.add("opacity-100");
+    }
+  }, 30);
 }
 function renderArt() {
   document.getElementById("main").innerHTML = art;
@@ -306,7 +307,7 @@ document.addEventListener("click", (e) => {
   }
   if (e.target.closest(".source")) {
     const btnSource = document.querySelectorAll(".source");
-        window.location.href = "https://github.com/DYTye";
+    window.location.href = "https://github.com/DYTye";
   }
 });
 
