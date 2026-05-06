@@ -237,11 +237,11 @@ function renderProject() {
     addBg.classList.add("bg-[#212326]","lg:bg-[url('/public/bgc.webp')]");
   }
 
-  // const glass = document.getElementById("glass");
-  // if (glass) {
-  //   glass.classList.add("opacity-100", "bg-[#212326]", "lg:bg-[#212326]/70");
+  const glass = document.getElementById("glass");
+  if (glass) {
+    glass.classList.add("opacity-100", "bg-[#212326]", "lg:bg-[#212326]/70");
 
-  // }
+  }
 }
 function renderArt() {
   document.getElementById("main").innerHTML = art;
