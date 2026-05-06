@@ -143,12 +143,7 @@ function renderHome() {
 }
 
 function renderProject() {
-  window.scrollTo(0,0);
   document.getElementById("main").innerHTML = project;
-
-  const rmBebek = document.getElementById("bebek");
-  if (rmBebek) rmBebek.classList.add("hidden");
-
   const pasar = document.getElementById("pasar");
   const bfod = document.getElementById("bfod");
   const sp = document.getElementById("sp");
@@ -157,43 +152,57 @@ function renderProject() {
     pasar.innerHTML = p3d;
     bfod.innerHTML = bfode;
     sp.innerHTML = sidangpanic;
-
-    const swiperMain = new Swiper(".swiper-main", {
-      modules: [Navigation, Pagination],
-      loop: true,
-      observer: true,
-      observeParents: true,
-      watchSlidesProgress: true,
-      autoHeight: true,
-
-      pagination: { el: ".main-pagination", clickable: true },
-      navigation: {
-        nextEl: ".main-next",
-        prevEl: ".main-prev",
-      },
-    });
-
-    const swiperProject = new Swiper(".swiper-project", {
-      modules: [Navigation, Pagination, Autoplay],
-      loop: true,
-      observer: true,
-      observeParents: true,
-      watchSlidesProgress: true,
-      addIcons: false,
-      autoHeight: true,
-
-      autoplay: {
-        delay: 1000,
-        disableOnInteraction: true,
-      },
-
-      pagination: { el: ".project-pagination", clickable: true },
-      navigation: {
-        nextEl: ".project-next",
-        prevEl: ".project-prev",
-      },
-    });
   }
+  const swiperMain = new Swiper(".swiper-main", {
+    modules: [Navigation, Pagination],
+    loop: true,
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    autoHeight: true,
+
+    pagination: { el: ".main-pagination", clickable: true },
+    navigation: {
+      nextEl: ".main-next",
+      prevEl: ".main-prev",
+    },
+  });
+
+  const swiperProject = new Swiper(".swiper-project", {
+    modules: [Navigation, Pagination, Autoplay],
+    loop: true,
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    addIcons: false,
+    autoHeight: true,
+
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: true,
+    },
+
+    pagination: { el: ".project-pagination", clickable: true },
+    navigation: {
+      nextEl: ".project-next",
+      prevEl: ".project-prev",
+    },
+  });
+  const animasi = document.getElementById("anima");
+  const playanimasi = gsap.fromTo(
+    animasi,
+    { y: 50, opacity: 0 },
+    {
+      duration: 0.5,
+      y: 0,
+      ease: "back.out(2.5)",
+      opacity: 1,
+    },
+  );
+  playanimasi.play();
+
+  const rmBebek = document.getElementById("bebek");
+  if (rmBebek) rmBebek.classList.add("hidden");
 
   const rmBg = document.getElementById("footer-placeholder");
   if (rmBg) {
@@ -222,22 +231,23 @@ function renderProject() {
     glass.classList.add("opacity-100");
   }
 
-  const animasi = document.getElementById("anima");
-  const playanimasi = gsap.fromTo(
-    animasi,
-    { y: 50, opacity: 0 },
-    {
-      duration: 0.5,
-      y: 0,
-      ease: "back.out(2.5)",
-      opacity: 1,
-    },
-  );
-  playanimasi.play();
+  window.scrollTo(0, 0);
 }
 function renderArt() {
-  window.scrollTo(0,0);
   document.getElementById("main").innerHTML = art;
+  window.scrollTo(0, 0);
+  const rmBebek = document.getElementById("bebek");
+  if (rmBebek) {
+    rmBebek.classList.add("hidden");
+  } else {
+  }
+  const addBg = document.getElementById("body");
+  if (addBg) {
+    addBg.classList.remove(
+      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+    );
+    addBg.classList.add("bg-[#212326]");
+  }
   setTimeout(() => {
     const swiperProject = new Swiper(".swiper-project", {
       modules: [Navigation, Pagination, Autoplay],
@@ -261,24 +271,9 @@ function renderArt() {
 
     setTimeout(() => swiper.update(), 50);
   }, 200);
-
-  const rmBebek = document.getElementById("bebek");
-  if (rmBebek) {
-    rmBebek.classList.add("hidden");
-  } else {
-  }
-  const addBg = document.getElementById("body");
-  if (addBg) {
-    addBg.classList.remove(
-      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-    );
-    addBg.classList.add("bg-[#212326]");
-  }
 }
 function renderSetup() {
-  window.scrollTo(0,0);
   const btnSetup = document.querySelectorAll(".setup");
-
   document.getElementById("main").innerHTML = setup;
 
   const hidebebek = document.getElementById("bebek");
@@ -292,6 +287,7 @@ function renderSetup() {
     );
     addBg.classList.add("bg-[#212326]");
   }
+  window.scrollTo(0, 0);
 }
 
 document.addEventListener("click", (e) => {
@@ -308,13 +304,10 @@ document.addEventListener("click", (e) => {
   if (e.target.closest(".setup")) {
     renderSetup();
   }
-});
-
-const btnSource = document.querySelectorAll(".source");
-btnSource.forEach((y) => {
-  y.addEventListener("click", () => {
-    window.location.href = "https://github.com/DYTye";
-  });
+  if (e.target.closest(".source")) {
+    const btnSource = document.querySelectorAll(".source");
+        window.location.href = "https://github.com/DYTye";
+  }
 });
 
 function bebekAwal() {
