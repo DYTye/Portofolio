@@ -1,33 +1,4 @@
-<script>
-  const bgb = document.getElementById("bg-bot");
 
-navItems.forEach((nav) => {
-  nav.addEventListener("click", () => {
-    const posisiBgb = nav.getBoundingClientRect();
-    const posisiParentb = nav.parentElement.getBoundingClientRect();
-
-    bgb.style.width = posisiBgb.width + "px";
-    bgb.style.height = posisiBgb.height + "px";
-
-    bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
-    bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
-  });
-});
-
-if (navItems.length > 0) {
-  setTimeout(() => {
-    const navbt = navItems[5];
-
-    const posisiBgb = navbt.getBoundingClientRect();
-    const posisiParentb = navbt.parentElement.getBoundingClientRect();
-
-    bgb.style.width = posisiBgb.width + "px";
-    bgb.style.height = posisiBgb.height + "px";
-    bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
-    bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
-  }, 50);
-}
-</script>
 <nav
   class="fixed bottom-0 right-0 left-0 z-[999] mt-2 justify-center text-xs"
   id="nav"

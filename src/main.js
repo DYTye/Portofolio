@@ -20,281 +20,292 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("footer-placeholder").innerHTML = footer;
+  document.getElementById("main").innerHTML = main;
+  document.getElementById("navbar-placeholder").innerHTML = navbar;
+  document.getElementById("botNav").innerHTML = botNav;
 
-document.addEventListener("DOMContentLoaded",()=>{
-document.getElementById("footer-placeholder").innerHTML = footer;
-document.getElementById("main").innerHTML = main;
-document.getElementById("navbar-placeholder").innerHTML = navbar;
-document.getElementById("botNav").innerHTML = botNav;
-
-navbarRun();
+  navbarRun();
 });
 
-function navbarRun(){
-const navItems = document.querySelectorAll(".nav-items");
-const bg = document.getElementById("bg");
+function navbarRun() {
+  const navItems = document.querySelectorAll(".nav-items");
+  const bg = document.getElementById("bg");
 
-const loading = document.getElementById("loading");
-if (loading) {
-  gsap.to(loading, {
-    opacity: 0,
-    duration: 0.8,
-    delay: 1.2,
-    ease: "power2.inOut",
-    onComplete: () => {
-      loading.style.display = "none";
-    },
+  const loading = document.getElementById("loading");
+  if (loading) {
+    gsap.to(loading, {
+      opacity: 0,
+      duration: 0.8,
+      delay: 1.2,
+      ease: "power2.inOut",
+      onComplete: () => {
+        loading.style.display = "none";
+
+        bebekAwal();
+      },
+    });
+  }
+  navItems.forEach((nav) => {
+    nav.addEventListener("click", () => {
+      const posisiBg = nav.getBoundingClientRect();
+      const posisiParent = nav.parentElement.getBoundingClientRect();
+
+      bg.style.width = posisiBg.width + "px";
+      bg.style.height = posisiBg.height + "px";
+
+      bg.style.left = posisiBg.left - posisiParent.left + "px";
+      bg.style.top = posisiBg.top - posisiParent.top + "px";
+    });
   });
-}
-navItems.forEach((nav) => {
-  nav.addEventListener("click", () => {
-    const posisiBg = nav.getBoundingClientRect();
-    const posisiParent = nav.parentElement.getBoundingClientRect();
 
-    bg.style.width = posisiBg.width + "px";
-    bg.style.height = posisiBg.height + "px";
+  if (navItems.length > 0) {
+    setTimeout(() => {
+      const nav = navItems[0];
 
-    bg.style.left = posisiBg.left - posisiParent.left + "px";
-    bg.style.top = posisiBg.top - posisiParent.top + "px";
+      const posisiBg = nav.getBoundingClientRect();
+      const posisiParent = nav.parentElement.getBoundingClientRect();
+
+      bg.style.width = posisiBg.width + "px";
+      bg.style.height = posisiBg.height + "px";
+      bg.style.left = posisiBg.left - posisiParent.left + "px";
+      bg.style.top = posisiBg.top - posisiParent.top + "px";
+    }, 50);
+  }
+
+  const bgb = document.getElementById("bg-bot");
+
+  navItems.forEach((nav) => {
+    nav.addEventListener("click", () => {
+      const posisiBgb = nav.getBoundingClientRect();
+      const posisiParentb = nav.parentElement.getBoundingClientRect();
+
+      bgb.style.width = posisiBgb.width + "px";
+      bgb.style.height = posisiBgb.height + "px";
+
+      bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
+      bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
+    });
   });
-});
 
-if (navItems.length > 0) {
-  setTimeout(() => {
-    const nav = navItems[0];
+  if (navItems.length > 0) {
+    setTimeout(() => {
+      const navbt = navItems[5];
 
-    const posisiBg = nav.getBoundingClientRect();
-    const posisiParent = nav.parentElement.getBoundingClientRect();
+      const posisiBgb = navbt.getBoundingClientRect();
+      const posisiParentb = navbt.parentElement.getBoundingClientRect();
 
-    bg.style.width = posisiBg.width + "px";
-    bg.style.height = posisiBg.height + "px";
-    bg.style.left = posisiBg.left - posisiParent.left + "px";
-    bg.style.top = posisiBg.top - posisiParent.top + "px";
-  }, 50);
+      bgb.style.width = posisiBgb.width + "px";
+      bgb.style.height = posisiBgb.height + "px";
+      bgb.style.left = posisiBgb.left - posisiParentb.left + "px";
+      bgb.style.top = posisiBgb.top - posisiParentb.top + "px";
+    }, 50);
+  }
 }
-
-
 
 const btnHome = document.querySelectorAll(".lofi");
 const btnProject = document.querySelectorAll(".project");
 const btnArt = document.querySelectorAll(".art");
-
 function renderHome() {
-    document.getElementById("main").innerHTML = main;
-    const rmBebek = document.getElementById("bebek");
-    const footerdef = document.getElementById("footer-placeholder");
-    if (rmBebek) {
-      rmBebek.classList.remove("hidden");
-    } else {
-    }
-    const addBg = document.getElementById("body");
-    if (addBg) {
-      addBg.classList.add(
-        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-      );
-    } else {
-    }
-
-    if (footerdef) {
-      footerdef.classList.remove(
-        "h-fit",
-        "w-fit",
-        "mx-auto",
-        "rounded-md",
-        "bg-[#212326]/70",
-        "backdrop-blur-sm",
-        "text-amber-100",
-      );
-    }
-    const animasiBebek = document.getElementById("bebek");
-    let cd = false;
-    if (animasiBebek) {
-      const flip = gsap.fromTo(
-        animasiBebek,
-        { rotationY: 0 },
-        { rotateY: 360, duration: 1, ease: "back.out(1.5)" },
-      );
-      flip.play();
-    }
-    const glass = document.getElementById("glass");
-    if (glass) {
-      glass.classList.remove("opacity-100");
-    }
-};
-
-function renderProject(){
-  
-    document.getElementById("main").innerHTML = project;
-
-    const rmBebek = document.getElementById("bebek");
-    if (rmBebek) rmBebek.classList.add("hidden");
-
-    const pasar = document.getElementById("pasar");
-    const bfod = document.getElementById("bfod");
-    const sp = document.getElementById("sp");
-
-
-
-    if (pasar && bfod && sp) {
-      pasar.innerHTML = p3d;
-      bfod.innerHTML = bfode;
-      sp.innerHTML = sidangpanic;
-
-      const swiperMain = new Swiper(".swiper-main", {
-        modules: [Navigation, Pagination],
-        loop: true,
-        observer: true,
-        observeParents: true,
-        watchSlidesProgress: true,
-        autoHeight: true,
-
-        pagination: { el: ".main-pagination", clickable: true },
-        navigation: {
-          nextEl: ".main-next",
-          prevEl: ".main-prev",
-        },
-      });
-
-      const swiperProject = new Swiper(".swiper-project", {
-        modules: [Navigation, Pagination, Autoplay],
-        loop: true,
-        observer: true,
-        observeParents: true,
-        watchSlidesProgress: true,
-        addIcons: false,
-        autoHeight: true,
-
-        autoplay: {
-          delay: 1000,
-          disableOnInteraction: true,
-        },
-
-        pagination: { el: ".project-pagination", clickable: true },
-        navigation: {
-          nextEl: ".project-next",
-          prevEl: ".project-prev",
-        },
-      });
-    }
-
-    const rmBg = document.getElementById("footer-placeholder");
-    if (rmBg) {
-      rmBg.classList.add(
-        "h-fit",
-        "w-fit",
-        "mx-auto",
-        "rounded-md",
-        "bg-[#212326]/70",
-        "backdrop-blur-sm",
-        "text-amber-100",
-      );
-    }
-
-    const addBg = document.getElementById("body");
-    if (addBg) {
-      addBg.classList.remove("bg-[#212326]");
-
-      addBg.classList.add(
-        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-      );
-    }
-
-    const glass = document.getElementById("glass");
-    if (glass) {
-      glass.classList.add("opacity-100");
-    }
-
-    const animasi = document.getElementById("anima");
-    const playanimasi = gsap.fromTo(
-      animasi,
-      { y: 50, opacity: 0 },
-      {
-        duration: 0.5,
-        y: 0,
-        ease: "back.out(2.5)",
-        opacity: 1,
-      },
+  document.getElementById("main").innerHTML = main;
+  const rmBebek = document.getElementById("bebek");
+  const footerdef = document.getElementById("footer-placeholder");
+  if (rmBebek) {
+    rmBebek.classList.remove("hidden");
+  } else {
+  }
+  const addBg = document.getElementById("body");
+  if (addBg) {
+    addBg.classList.add(
+      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
     );
-    playanimasi.play();
-  
-};
-function renderArt(){
-  
-    document.getElementById("main").innerHTML = art;
-    setTimeout(() => {
-      const swiperProject = new Swiper(".swiper-project", {
-        modules: [Navigation, Pagination, Autoplay],
-        loop: true,
-        observer: true,
-        observeParents: true,
-        watchSlidesProgress: true,
-        addIcons: false,
+  } else {
+  }
 
-        autoplay: {
-          delay: 1000,
-          disableOnInteraction: true,
-        },
+  if (footerdef) {
+    footerdef.classList.remove(
+      "h-fit",
+      "w-fit",
+      "mx-auto",
+      "rounded-md",
+      "bg-[#212326]/70",
+      "backdrop-blur-sm",
+      "text-amber-100",
+    );
+  }
+  bebekAwal();
 
-        pagination: { el: ".project-pagination", clickable: true },
-        navigation: {
-          nextEl: ".project-next",
-          prevEl: ".project-prev",
-        },
-      });
+  const glass = document.getElementById("glass");
+  if (glass) {
+    glass.classList.remove("opacity-100");
+  }
+}
 
-      setTimeout(() => swiper.update(), 50);
-    }, 200);
+function renderProject() {
+  document.getElementById("main").innerHTML = project;
 
-    const rmBebek = document.getElementById("bebek");
-    if (rmBebek) {
-      rmBebek.classList.add("hidden");
-    } else {
-    }
-    const addBg = document.getElementById("body");
-    if (addBg) {
-      addBg.classList.remove(
-        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-      );
-      addBg.classList.add("bg-[#212326]");
-    }
-  
-};
-function renderSetup(){
+  const rmBebek = document.getElementById("bebek");
+  if (rmBebek) rmBebek.classList.add("hidden");
+
+  const pasar = document.getElementById("pasar");
+  const bfod = document.getElementById("bfod");
+  const sp = document.getElementById("sp");
+
+  if (pasar && bfod && sp) {
+    pasar.innerHTML = p3d;
+    bfod.innerHTML = bfode;
+    sp.innerHTML = sidangpanic;
+
+    const swiperMain = new Swiper(".swiper-main", {
+      modules: [Navigation, Pagination],
+      loop: true,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      autoHeight: true,
+
+      pagination: { el: ".main-pagination", clickable: true },
+      navigation: {
+        nextEl: ".main-next",
+        prevEl: ".main-prev",
+      },
+    });
+
+    const swiperProject = new Swiper(".swiper-project", {
+      modules: [Navigation, Pagination, Autoplay],
+      loop: true,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      addIcons: false,
+      autoHeight: true,
+
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+
+      pagination: { el: ".project-pagination", clickable: true },
+      navigation: {
+        nextEl: ".project-next",
+        prevEl: ".project-prev",
+      },
+    });
+  }
+
+  const rmBg = document.getElementById("footer-placeholder");
+  if (rmBg) {
+    rmBg.classList.add(
+      "h-fit",
+      "w-fit",
+      "mx-auto",
+      "rounded-md",
+      "bg-[#212326]/70",
+      "backdrop-blur-sm",
+      "text-amber-100",
+    );
+  }
+
+  const addBg = document.getElementById("body");
+  if (addBg) {
+    addBg.classList.remove("bg-[#212326]");
+
+    addBg.classList.add(
+      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+    );
+  }
+
+  const glass = document.getElementById("glass");
+  if (glass) {
+    glass.classList.add("opacity-100");
+  }
+
+  const animasi = document.getElementById("anima");
+  const playanimasi = gsap.fromTo(
+    animasi,
+    { y: 50, opacity: 0 },
+    {
+      duration: 0.5,
+      y: 0,
+      ease: "back.out(2.5)",
+      opacity: 1,
+    },
+  );
+  playanimasi.play();
+}
+function renderArt() {
+  document.getElementById("main").innerHTML = art;
+  setTimeout(() => {
+    const swiperProject = new Swiper(".swiper-project", {
+      modules: [Navigation, Pagination, Autoplay],
+      loop: true,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      addIcons: false,
+
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+
+      pagination: { el: ".project-pagination", clickable: true },
+      navigation: {
+        nextEl: ".project-next",
+        prevEl: ".project-prev",
+      },
+    });
+
+    setTimeout(() => swiper.update(), 50);
+  }, 200);
+
+  const rmBebek = document.getElementById("bebek");
+  if (rmBebek) {
+    rmBebek.classList.add("hidden");
+  } else {
+  }
+  const addBg = document.getElementById("body");
+  if (addBg) {
+    addBg.classList.remove(
+      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+    );
+    addBg.classList.add("bg-[#212326]");
+  }
+}
+function renderSetup() {
   const btnSetup = document.querySelectorAll(".setup");
 
- 
-    document.getElementById("main").innerHTML = setup;
+  document.getElementById("main").innerHTML = setup;
 
-    const hidebebek = document.getElementById("bebek");
-    if (hidebebek) {
-      hidebebek.classList.add("hidden");
-    }
-    const addBg = document.getElementById("body");
-    if (addBg) {
-      addBg.classList.remove(
-        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-      );
-      addBg.classList.add("bg-[#212326]");
-    }
-};
+  const hidebebek = document.getElementById("bebek");
+  if (hidebebek) {
+    hidebebek.classList.add("hidden");
+  }
+  const addBg = document.getElementById("body");
+  if (addBg) {
+    addBg.classList.remove(
+      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+    );
+    addBg.classList.add("bg-[#212326]");
+  }
+}
 
-document.addEventListener("click",(e)=>{
-  if(e.target.closest(".lofi")){
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".lofi")) {
     renderHome();
   }
   if (e.target.closest(".project")) {
     renderProject();
   }
 
-  
   if (e.target.closest(".art")) {
     renderArt();
   }
-  if (e.target.closest(".setup")){
+  if (e.target.closest(".setup")) {
     renderSetup();
   }
-
-})
+});
 
 const btnSource = document.querySelectorAll(".source");
 btnSource.forEach((y) => {
@@ -303,20 +314,16 @@ btnSource.forEach((y) => {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
+function bebekAwal() {
+  const animasiBebek = document.getElementById("bebek");
+  if (animasiBebek) {
+    const flip = gsap.fromTo(
+      animasiBebek,
+      { rotationY: 0 },
+      { rotateY: 360, duration: 1, ease: "back.out(1.5)" },
+    );
+  }
 }
-
-
 
 const animasiBebek = document.getElementById("bebek");
 let cd = false;
@@ -343,29 +350,3 @@ if (animasiBebek) {
     }, 2000);
   });
 }
-
-// if (btnProject) {
-//   btnProject.addEventListener("click", () => {
-//     document.getElementById("main").innerHTML = project;
-//   });
-// }
-// if (btnArt) {
-//   btnArt.addEventListener("click", () => {
-//     document.getElementById("main").innerHTML = art;
-//   });
-// }
-// if (btnHome) {
-//   btnHome.addEventListener("click", () => {
-//     document.getElementById("main").innerHTML = main;
-
-//     navItems.forEach((x) => {
-//       x.classList.remove(
-//         "bg-amber-100",
-//         "text-black",
-//         "backdrop-blur-sm",
-//         "rounded-xl",
-//       );
-//     });
-//   });
-// } else {
-// }
