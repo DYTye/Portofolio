@@ -159,13 +159,12 @@ function renderProject() {
   window.scrollTo(0, 0);
   swiperDestroy();
 
-  const pasar = document.getElementById("pasar");
+  setTimeout(()=>{
+    const pasar = document.getElementById("pasar");
   const bfod = document.getElementById("bfod");
   const sp = document.getElementById("sp");
-  const footerPlaceholder = document.getElementById("footer-placeholder");
-  if (footerPlaceholder) {
-    footerPlaceholder.innerHTML = "";
-  }
+
+
 
   if (pasar && bfod && sp) {
     pasar.innerHTML = p3d;
@@ -250,6 +249,8 @@ function renderProject() {
       animasi.classList.remove("rounded-3xl")
     }
   }
+  },50)
+  
 }
 function renderArt() {
   document.getElementById("main").innerHTML = art;
