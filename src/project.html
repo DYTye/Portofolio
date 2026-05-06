@@ -1,20 +1,26 @@
-<div
-  class="swiper swiper-main my-2 lg:my-5  overflow-hidden bg-[#212326] rounded-3xl max-w-7xl"
-  id="anima"
->
-  <div class="swiper-wrapper pt-5 mb-3">
-    <div class="swiper-slide" id="pasar"></div>
-    <div class="swiper-slide" id="sp"></div>
-    <div class="swiper-slide" id="bfod"></div>
-  </div>
-  <div
-    class="main-pagination swiper-pagination"
-    style="
-      --swiper-pagination-color: #d23b7b;
-      --swiper-pagination-bullet-inactive-color: #fef3c7;
-    "
-  ></div>
-  <div class="main-prev swiper-button-prev lg:!text-[#D23B7B] !text-transparent"></div>
-  <div class="main-next swiper-button-next lg:!text-[#D23B7B] !text-transparent"></div>
-</div>
+<div class="w-full max-w-6xl mx-auto px-3 lg:px-6 my-4 lg:my-8">
 
+  <!-- Swiper utama (project switcher) -->
+  <div
+    class="swiper swiper-main bg-[#212326] rounded-2xl lg:rounded-3xl overflow-hidden"
+    id="anima"
+  >
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" id="pasar"></div>
+      <div class="swiper-slide" id="sp"></div>
+      <div class="swiper-slide" id="bfod"></div>
+    </div>
+
+    <div
+      class="main-pagination swiper-pagination !bottom-3"
+      style="
+        --swiper-pagination-color: #d23b7b;
+        --swiper-pagination-bullet-inactive-color: #fef3c7;
+      "
+    ></div>
+
+    <div class="main-prev swiper-button-prev !text-transparent lg:!text-[#D23B7B] !left-2"></div>
+    <div class="main-next swiper-button-next !text-transparent lg:!text-[#D23B7B] !right-2"></div>
+  </div>
+
+</div>
