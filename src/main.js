@@ -104,48 +104,61 @@ function navbarRun() {
   }
 }
 
+let projectSwiperInstance = null;
+let mainSwiperInstance = null;
+
+function swiperDestroy() {
+
+  if (projectSwiperInstance) projectSwiperInstance.destroy(true, true);
+  if (mainSwiperInstance) mainSwiperInstance.destroy(true, true);
+}
+
 const btnHome = document.querySelectorAll(".lofi");
 const btnProject = document.querySelectorAll(".project");
 const btnArt = document.querySelectorAll(".art");
 function renderHome() {
   document.getElementById("main").innerHTML = main;
-  const rmBebek = document.getElementById("bebek");
-  const footerdef = document.getElementById("footer-placeholder");
-  if (rmBebek) {
-    rmBebek.classList.remove("hidden");
-  } else {
-  }
-  const addBg = document.getElementById("body");
-  if (addBg) {
-    addBg.classList.add(
-      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-    );
-  } else {
-  }
+  window.scrollTo(0, 0);
+  setTimeout(() => {
+    const rmBebek = document.getElementById("bebek");
+    const footerdef = document.getElementById("footer-placeholder");
+    if (rmBebek) {
+      rmBebek.classList.remove("hidden");
+    } else {
+    }
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.add(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+    } else {
+    }
 
-  if (footerdef) {
-    footerdef.classList.remove(
-      "h-fit",
-      "w-fit",
-      "mx-auto",
-      "rounded-md",
-      "bg-[#212326]/70",
-      "backdrop-blur-sm",
-      "text-amber-100",
-    );
-  }
-  bebekAwal();
+    if (footerdef) {
+      footerdef.classList.remove(
+        "h-fit",
+        "w-fit",
+        "mx-auto",
+        "rounded-md",
+        "bg-[#212326]/70",
+        "backdrop-blur-sm",
+        "text-amber-100",
+      );
+    }
+    bebekAwal();
 
-  const glass = document.getElementById("glass");
-  if (glass) {
-    glass.classList.remove("opacity-100");
-  }
+    const glass = document.getElementById("glass");
+    if (glass) {
+      glass.classList.remove("opacity-100");
+    }
+  });
 }
 
 function renderProject() {
   document.getElementById("main").innerHTML = project;
   window.scrollTo(0, 0);
-  setTimeout(() => {
+  swiperDestroy()
+  
     const pasar = document.getElementById("pasar");
     const bfod = document.getElementById("bfod");
     const sp = document.getElementById("sp");
@@ -161,7 +174,6 @@ function renderProject() {
       observer: true,
       observeParents: true,
       watchSlidesProgress: true,
-      autoHeight: true,
 
       pagination: { el: ".main-pagination", clickable: true },
       navigation: {
@@ -177,7 +189,6 @@ function renderProject() {
       observeParents: true,
       watchSlidesProgress: true,
       addIcons: false,
-      autoHeight: true,
 
       autoplay: {
         delay: 1000,
@@ -232,11 +243,12 @@ function renderProject() {
     if (glass) {
       glass.classList.add("opacity-100");
     }
-  }, 30);
+  
 }
 function renderArt() {
   document.getElementById("main").innerHTML = art;
   window.scrollTo(0, 0);
+  swiperDestroy()
   const rmBebek = document.getElementById("bebek");
   if (rmBebek) {
     rmBebek.classList.add("hidden");
