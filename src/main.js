@@ -244,9 +244,10 @@ function renderProject() {
   const glass = document.getElementById("glass");
   if (glass) {
     glass.classList.add("opacity-100", "bg-[#212326]", "lg:bg-[#212326]/70");
-
+    
     if (window.innerWidth < 1024) {
       addBg.classList.remove("bg-[url('/public/bgc.webp')]");
+      animasi.classList.remove("rounded-3xl")
     }
   }
 }
