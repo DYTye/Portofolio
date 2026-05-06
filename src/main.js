@@ -29,14 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
   navbarRun();
 });
 
+function navbarRun() {
+  const navItems = document.querySelectorAll(".nav-items");
+  const bg = document.getElementById("bg");
+
 window.addEventListener("load", () => {
   const loading = document.getElementById("loading");
-
+  
   if (loading) {
     gsap.to(loading, {
       opacity: 0,
       duration: 1,
-      delay: 0.5,
+      delay: 0.5, 
       ease: "power2.inOut",
       onComplete: () => {
         loading.style.display = "none";
@@ -45,11 +49,6 @@ window.addEventListener("load", () => {
     });
   }
 });
-
-function navbarRun() {
-  const navItems = document.querySelectorAll(".nav-items");
-  const bg = document.getElementById("bg");
-
   navItems.forEach((nav) => {
     nav.addEventListener("click", () => {
       const posisiBg = nav.getBoundingClientRect();
@@ -111,6 +110,7 @@ let projectSwiperInstance = null;
 let mainSwiperInstance = null;
 
 function swiperDestroy() {
+
   if (projectSwiperInstance) projectSwiperInstance.destroy(true, true);
   if (mainSwiperInstance) mainSwiperInstance.destroy(true, true);
 }
@@ -159,97 +159,98 @@ function renderHome() {
 function renderProject() {
   document.getElementById("main").innerHTML = project;
   window.scrollTo(0, 0);
-  swiperDestroy();
+  swiperDestroy()
+  
+    const pasar = document.getElementById("pasar");
+    const bfod = document.getElementById("bfod");
+    const sp = document.getElementById("sp");
 
-  const pasar = document.getElementById("pasar");
-  const bfod = document.getElementById("bfod");
-  const sp = document.getElementById("sp");
+    if (pasar && bfod && sp) {
+      pasar.innerHTML = p3d;
+      bfod.innerHTML = bfode;
+      sp.innerHTML = sidangpanic;
+    }
+    const swiperMain = new Swiper(".swiper-main", {
+      modules: [Navigation, Pagination],
+      loop: true,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
 
-  if (pasar && bfod && sp) {
-    pasar.innerHTML = p3d;
-    bfod.innerHTML = bfode;
-    sp.innerHTML = sidangpanic;
-  }
-  const swiperMain = new Swiper(".swiper-main", {
-    modules: [Navigation, Pagination],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
+      pagination: { el: ".main-pagination", clickable: true },
+      navigation: {
+        nextEl: ".main-next",
+        prevEl: ".main-prev",
+      },
+    });
 
-    pagination: { el: ".main-pagination", clickable: true },
-    navigation: {
-      nextEl: ".main-next",
-      prevEl: ".main-prev",
-    },
-  });
+    const swiperProject = new Swiper(".swiper-project", {
+      modules: [Navigation, Pagination, Autoplay],
+      loop: true,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      addIcons: false,
 
-  const swiperProject = new Swiper(".swiper-project", {
-    modules: [Navigation, Pagination, Autoplay],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
-    addIcons: false,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
 
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: true,
-    },
-
-    pagination: { el: ".project-pagination", clickable: true },
-    navigation: {
-      nextEl: ".project-next",
-      prevEl: ".project-prev",
-    },
-  });
-  const animasi = document.getElementById("anima");
-  const playanimasi = gsap.fromTo(
-    animasi,
-    { y: 50, opacity: 0 },
-    {
-      duration: 0.5,
-      y: 0,
-      ease: "back.out(2.5)",
-      opacity: 1,
-    },
-  );
-  playanimasi.play();
-
-  const rmBebek = document.getElementById("bebek");
-  if (rmBebek) rmBebek.classList.add("hidden");
-
-  const rmBg = document.getElementById("footer-placeholder");
-  if (rmBg) {
-    rmBg.classList.add(
-      "h-fit",
-      "w-fit",
-      "mx-auto",
-      "rounded-md",
-      "bg-[#212326]/70",
-      "backdrop-blur-sm",
-      "text-amber-100",
+      pagination: { el: ".project-pagination", clickable: true },
+      navigation: {
+        nextEl: ".project-next",
+        prevEl: ".project-prev",
+      },
+    });
+    const animasi = document.getElementById("anima");
+    const playanimasi = gsap.fromTo(
+      animasi,
+      { y: 50, opacity: 0 },
+      {
+        duration: 0.5,
+        y: 0,
+        ease: "back.out(2.5)",
+        opacity: 1,
+      },
     );
-  }
+    playanimasi.play();
 
-  const addBg = document.getElementById("body");
-  if (addBg) {
-    addBg.classList.remove("bg-[#212326]");
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) rmBebek.classList.add("hidden");
 
-    addBg.classList.add(
-      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
-    );
-  }
+    const rmBg = document.getElementById("footer-placeholder");
+    if (rmBg) {
+      rmBg.classList.add(
+        "h-fit",
+        "w-fit",
+        "mx-auto",
+        "rounded-md",
+        "bg-[#212326]/70",
+        "backdrop-blur-sm",
+        "text-amber-100",
+      );
+    }
 
-  const glass = document.getElementById("glass");
-  if (glass) {
-    glass.classList.add("opacity-100");
-  }
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.remove("bg-[#212326]");
+
+      addBg.classList.add(
+        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      );
+    }
+
+    const glass = document.getElementById("glass");
+    if (glass) {
+      glass.classList.add("opacity-100");
+    }
+  
 }
 function renderArt() {
   document.getElementById("main").innerHTML = art;
   window.scrollTo(0, 0);
-  swiperDestroy();
+  swiperDestroy()
   const rmBebek = document.getElementById("bebek");
   if (rmBebek) {
     rmBebek.classList.add("hidden");
