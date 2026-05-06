@@ -132,7 +132,7 @@ function renderHome() {
     const addBg = document.getElementById("body");
     if (addBg) {
       addBg.classList.add(
-        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+        "bg-[url('/public/bgc.webp')]",
       );
     } else {
     }
@@ -238,7 +238,7 @@ function renderProject() {
       addBg.classList.remove("bg-[#212326]");
 
       addBg.classList.add(
-        "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+        "bg-[url('/public/bgc.webp')]",
       );
     }
 
@@ -260,7 +260,7 @@ function renderArt() {
   const addBg = document.getElementById("body");
   if (addBg) {
     addBg.classList.remove(
-      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      "bg-[url('/public/bgc.webp')]",
     );
     addBg.classList.add("bg-[#212326]");
   }
@@ -299,7 +299,7 @@ function renderSetup() {
   const addBg = document.getElementById("body");
   if (addBg) {
     addBg.classList.remove(
-      "bg-[url('https://txwatpcjenskrdnispuu.supabase.co/storage/v1/object/public/pasar3d/bgc.webp')]",
+      "bg-[url('/public/bgc.webp')]",
     );
     addBg.classList.add("bg-[#212326]");
   }
