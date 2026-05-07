@@ -234,13 +234,12 @@ function renderProject() {
   if (addBg) {
     addBg.classList.remove("bg-[#212326]");
 
-    addBg.classList.add("bg-[#212326]","lg:bg-[url('/bgc.webp')]");
+    addBg.classList.add("bg-[#212326]", "lg:bg-[url('/bgc.webp')]");
   }
 
   const glass = document.getElementById("glass");
   if (glass) {
     glass.classList.add("opacity-100", "bg-[#212326]", "lg:bg-[#212326]/70");
-
   }
 }
 function renderArt() {
@@ -254,8 +253,10 @@ function renderArt() {
   }
   const addBg = document.getElementById("body");
   if (addBg) {
-    addBg.classList.remove("bg-[url('/bgc.webp')]");
-    addBg.classList.add("bg-[#212326]");
+    
+    addBg.style.backgroundImage = "none";
+
+    addBg.className = "bg-[#212326]"; 
   }
   setTimeout(() => {
     const swiperProject = new Swiper(".swiper-project", {
