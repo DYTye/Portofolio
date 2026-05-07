@@ -130,7 +130,7 @@ function renderHome() {
     }
     const addBg = document.getElementById("body");
     if (addBg) {
-      addBg.classList.add("bg-[url('/public/bgc.webp')]");
+      addBg.classList.add("bg-[url('/bgc.webp')]");
     } else {
     }
 
@@ -234,7 +234,7 @@ function renderProject() {
   if (addBg) {
     addBg.classList.remove("bg-[#212326]");
 
-    addBg.classList.add("bg-[#212326]","lg:bg-[url('/public/bgc.webp')]");
+    addBg.classList.add("bg-[#212326]","lg:bg-[url('/bgc.webp')]");
   }
 
   const glass = document.getElementById("glass");
@@ -254,7 +254,7 @@ function renderArt() {
   }
   const addBg = document.getElementById("body");
   if (addBg) {
-    addBg.classList.remove("bg-[url('/public/bgc.webp')]");
+    addBg.classList.remove("bg-[url('/bgc.webp')]");
     addBg.classList.add("bg-[#212326]");
   }
   setTimeout(() => {
@@ -291,7 +291,7 @@ function renderSetup() {
   }
   const addBg = document.getElementById("body");
   if (addBg) {
-    addBg.classList.remove("bg-[url('/public/bgc.webp')]");
+    addBg.classList.remove("bg-[url('/bgc.webp')]");
     addBg.classList.add("bg-[#212326]");
   }
   window.scrollTo(0, 0);
