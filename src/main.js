@@ -130,7 +130,7 @@ function renderHome() {
     }
     const addBg = document.getElementById("body");
     if (addBg) {
-      addBg.classList.add("bg-[url('/bgc.webp')]");
+      addBg.classList.add("bg-[url('/public/bgc.webp')]");
     } else {
     }
 
@@ -234,7 +234,7 @@ function renderProject() {
   if (addBg) {
     addBg.classList.remove("bg-[#212326]");
 
-    addBg.classList.add("bg-[#212326]", "lg:bg-[url('/bgc.webp')]");
+    addBg.classList.add("bg-[#212326]", "lg:bg-[url('/public/bgc.webp')]");
   }
 
   const glass = document.getElementById("glass");
@@ -247,17 +247,15 @@ function renderArt() {
   window.scrollTo(0, 0);
   swiperDestroy();
   const rmBebek = document.getElementById("bebek");
-  if (rmBebek) {
-    rmBebek.classList.add("hidden");
-  } else {
-  }
+  if (rmBebek) rmBebek.classList.add("hidden");
   const addBg = document.getElementById("body");
   if (addBg) {
-    
-    addBg.style.backgroundImage = "none";
+    addBg.classList.remove("lg:bg-[url('/public/bgc.webp')]","bg-[url('/public/bgc.webp')]");
 
-    addBg.className = "bg-[#212326]"; 
+    addBg.classList.add("bg-[#212326]");
   }
+
+
   setTimeout(() => {
     const swiperProject = new Swiper(".swiper-project", {
       modules: [Navigation, Pagination, Autoplay],
@@ -292,7 +290,7 @@ function renderSetup() {
   }
   const addBg = document.getElementById("body");
   if (addBg) {
-    addBg.classList.remove("bg-[url('/bgc.webp')]");
+    addBg.classList.remove("bg-[url('/public/bgc.webp')]");
     addBg.classList.add("bg-[#212326]");
   }
   window.scrollTo(0, 0);
