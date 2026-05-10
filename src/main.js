@@ -45,6 +45,13 @@ window.addEventListener("load", () => {
     });
   }
 });
+function ranColor() {
+  const color = ["[#d23b7b]", "[#831C91]", "[#462C7D]"];
+  const bgColor = Math.floor(Math.random() * color.length);
+  const pickColor = color[bgColor];
+
+  return pickColor;
+}
 
 function navbarRun() {
   const navItems = document.querySelectorAll(".nav-items");
@@ -227,6 +234,17 @@ function renderProject() {
         handled the final pitch to the judges.`,
       ],
     },
+    {
+      nama: "Automasi Pencatatan Resi Implementasi AI Mutimodal",
+      skill: ["Next.js", "Cloud Computing", "AI Implementation"],
+      slider: ["comingsoon.jpg"],
+      deskripsi: [
+        `A serverless SaaS platform designed to automate financial recording for SMEs. By leveraging Multimodal AI, the system eliminates manual data entry by instantly converting receipt photos into structured financial records.`,
+        `Built with a modern serverless architecture using Next.js for the frontend and Supabase Edge Functions for logic. It utilizes Supabase Storage for secure image hosting and PostgreSQL for scalable, multi-tenant data management.`,
+        `Powered by the Gemini 1.5 Flash API to extract key transaction data. I implemented a custom Post-Processing layer using Regex and data sanitization to ensure high-precision output and consistent data formatting before database insertion.`,
+        `This project bridges the digital gap for small businesses by reducing human error and streamlining bookkeeping. It provides a mobile-first, automated solution that allows business owners to focus on growth rather than administrative tasks.`,
+      ],
+    },
   ];
 
   let isiProject = `
@@ -240,12 +258,12 @@ function renderProject() {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-xs lg:max-w-6xl mx-auto my-6">
           
           <div>
-            <div class="z-10 ring-2 ring-purple-500/30 p-5 rounded-md bg-[#1a1c1e]">
+            <div class="z-10 ring-2 ring-${ranColor()} p-5 rounded-md bg-[#1a1c1e]">
               <div class="py-4">
                 <div class="w-full">
                   <div class="aspect-video w-full swiper swiper-project overflow-hidden rounded-xl">
-                    <div class="swiper-wrapper">
-                    ${p.slider.map((foto) => `<div class="swiper-slide"><img src=${foto} class="w-full h-full object-cover"></div>`).join('')}
+                    <div class="swiper-wrapper ">
+                    ${p.slider.map((foto) => `<div class="swiper-slide"><img src=${foto} class="w-full h-full object-cover"></div>`).join("")}
                     </div>
                     <div class="project-pagination swiper-pagination"></div>
                     <div class="project-next swiper-button-next !text-transparent "></div>
@@ -253,7 +271,7 @@ function renderProject() {
                   </div>
 
                   <div class="text-amber-100 font-bold flex flex-col gap-3 mt-5">
-                    <div class="font-extrabold flex gap-2 items-center bg-[#D23B7B] rounded-sm p-3 w-fit shadow-lg">
+                    <div class="font-extrabold flex gap-2 items-center bg-${ranColor()} rounded-sm p-3 w-fit shadow-lg">
                       <span>Project:</span>
                       <span>${p.nama}</span>
                     </div>
@@ -261,7 +279,7 @@ function renderProject() {
                     <div class="font-extrabold flex items-center gap-2">
                       <div class="bg-[#D23B7B] rounded-sm p-3 shadow-lg">Skills:</div>
                       <div class="flex flex-wrap gap-2">
-                      ${p.skill.map((mySkill)=> `<div class="bg-[#831C91] px-3 py-1 text-xs rounded-sm shadow-md">${mySkill}</div>`).join('')}
+                      ${p.skill.map((mySkill) => `<div class="bg-${ranColor()} px-3 py-1 text-xs rounded-sm shadow-md">${mySkill}</div>`).join("")}
                       </div>
                     </div>
                   </div>
@@ -271,15 +289,7 @@ function renderProject() {
           </div>
 
           <div class="flex flex-col gap-4 justify-center text-white/90">
-            <div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-[#D23B7B]">
-              <p class="text-xs leading-relaxed">${p.deskripsi[0]}</p>
-            </div>
-            <div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-[#831C91]">
-              <p class="text-xs leading-relaxed">${p.deskripsi[1]}</p>
-            </div>
-            <div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-[#462C7D]">
-              <p class="text-xs leading-relaxed">${p.deskripsi[2]}</p>
-            </div>
+            ${p.deskripsi.map((myDeskripsi) => `<div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-${ranColor()}"><div class="text-xs leading-relaxed">${myDeskripsi}</div></div>`).join("")} 
           </div>
 
         </div>
