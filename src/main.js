@@ -230,7 +230,7 @@ function renderProject() {
   ];
 
   let isiProject = `
-    <div class="swiper swiper-main my-2 lg:my-5 overflow-hidden bg-[#212326] rounded-3xl max-w-7xl mx-auto shadow-2xl">
+    <div class="swiper swiper-main my-2 lg:my-5 overflow-hidden bg-[#212326] rounded-3xl max-w-7xl mx-auto shadow-2xl" id=anima>
       <div class="swiper-wrapper pt-5 mb-3">`;
 
   for (let i = 0; i < projectSwiper.length; i++) {
@@ -331,18 +331,18 @@ function renderProject() {
       });
     });
   }, 200);
-  // const animasi = document.getElementById("anima");
-  // const playanimasi = gsap.fromTo(
-  //   animasi,
-  //   { y: 50, opacity: 0 },
-  //   {
-  //     duration: 0.5,
-  //     y: 0,
-  //     ease: "back.out(2.5)",
-  //     opacity: 1,
-  //   },
-  // );
-  // playanimasi.play();
+  const animasi = document.getElementById("anima");
+  const playanimasi = gsap.fromTo(
+    animasi,
+    { y: 50, opacity: 0 },
+    {
+      duration: 0.5,
+      y: 0,
+      ease: "back.out(2.5)",
+      opacity: 1,
+    },
+  );
+  playanimasi.play();
 
   const rmBebek = document.getElementById("bebek");
   if (rmBebek) rmBebek.classList.add("hidden");
