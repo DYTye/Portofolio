@@ -46,12 +46,12 @@ window.addEventListener("load", () => {
   }
 });
 function ranColor() {
-  const color = ["[#d23b7b]","[#831C91]","[#462C7D]"];
+  const color = ["bg-[#d23b7b]", "bg-[#831C91]", "bg-[#462C7D]"];
   const bgColor = Math.floor(Math.random() * color.length);
   const pickColor = color[bgColor];
-
   return pickColor;
 }
+
 
 function navbarRun() {
   const navItems = document.querySelectorAll(".nav-items");
@@ -258,7 +258,7 @@ function renderProject() {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-xs lg:max-w-6xl mx-auto my-6">
           
           <div>
-            <div class="z-10 ring-2 ring-${ranColor()} p-5 rounded-md bg-[#1a1c1e]">
+            <div class="z-10 ring-2 ${ranColor().replace("bg-","ring-")} p-5 rounded-md bg-[#1a1c1e]">
               <div class="py-4">
                 <div class="w-full">
                   <div class="aspect-video w-full swiper swiper-project overflow-hidden rounded-xl">
@@ -271,7 +271,7 @@ function renderProject() {
                   </div>
 
                   <div class="text-amber-100 font-bold flex flex-col gap-3 mt-5">
-                    <div class="font-extrabold flex gap-2 items-center bg-${ranColor()} rounded-sm p-3 w-fit shadow-lg">
+                    <div class="font-extrabold flex gap-2 items-center ${ranColor()} rounded-sm p-3 w-fit shadow-lg">
                       <span>Project:</span>
                       <span>${p.nama}</span>
                     </div>
@@ -279,7 +279,7 @@ function renderProject() {
                     <div class="font-extrabold flex items-center gap-2">
                       <div class="bg-[#D23B7B] rounded-sm p-3 shadow-lg">Skills:</div>
                       <div class="flex flex-wrap gap-2">
-                      ${p.skill.map((mySkill) => `<div class="bg-${ranColor()} px-3 py-1 text-xs rounded-sm shadow-md">${mySkill}</div>`).join("")}
+                      ${p.skill.map((mySkill) => `<div class="${ranColor()} px-3 py-1 text-xs rounded-sm shadow-md">${mySkill}</div>`).join("")}
                       </div>
                     </div>
                   </div>
@@ -289,7 +289,7 @@ function renderProject() {
           </div>
 
           <div class="flex flex-col gap-4 justify-center text-white/90">
-            ${p.deskripsi.map((myDeskripsi) => `<div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-${ranColor()}"><div class="text-xs leading-relaxed">${myDeskripsi}</div></div>`).join("")} 
+            ${p.deskripsi.map((myDeskripsi) => `<div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 ${ranColor().replace("bg-","border-")}"><div class="text-xs leading-relaxed">${myDeskripsi}</div></div>`).join("")} 
           </div>
 
         </div>
