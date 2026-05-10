@@ -155,93 +155,218 @@ function renderHome() {
 }
 
 function renderProject() {
-  document.getElementById("main").innerHTML = project;
-  window.scrollTo(0, 0);
-  swiperDestroy();
+    document.getElementById("main").innerHTML = "";
 
-  const pasar = document.getElementById("pasar");
-  const bfod = document.getElementById("bfod");
-  const sp = document.getElementById("sp");
+    const projectSwiper = [
+      {
+        nama: "Pasar 3D",
+        skill: ["Wordpress", "Elementor", "Rest-API"],
+        deskripsi: [
+          `Pasar3D is a premier digital marketplace built for the modern 3D
+        creator. We provide a dedicated platform where artists can showcase
+        their technical craftsmanship and turn their 3D projects into a thriving
+        business. From high-fidelity game assets to intricate architectural
+        models, we bridge the gap between creative visionaries and the global
+        industries that need them`,
+          `        Pasar3D was proudly developed during my internship at
+        <a class="text-purple-400" href="https://devatastudio.com"
+          >Devata Studio</a
+        >
+        . It began as a vision to empower fellow creators and evolved into a
+        fully-fledged marketplace. By combining the insights I gained at the
+        studio with my passion for 3D art, I’ve built a space where technical
+        quality meets commercial opportunity`,
+          `        Build with Wordpress and Elementor you can visit at
+        <span class="text-purple-400"
+          ><a href="https://pasar3d.com">Pasar3d.com</a></span
+        >`,
+        ],
+      },
+      {
+        nama: "BFOD",
+        skill: ["Wordpress", "Elementor"],
+        deskripsi: [
+          `        Battle Field of Devata (BFOD) is a national creative competition
+        platform I developed during my internship at <a class="text-purple-400" href="https://devatastudio.com">Devata Studio</a>, designed to
+        showcase 2D and 3D artists across Indonesia. It functions as both a
+        competition hub and exposure platform, helping participants gain
+        visibility, build portfolios, and connect with the creative industry.`,
+          `  The website was developed by me during my internship at <a class="text-purple-400" href="https://devatastudio.com">Devata Studio</a>,
+        where I was responsible for building and implementing the platform based
+        on direction and requirements provided by the Devata team, ensuring the
+        final product aligned with their vision and competition goals.`,
+          `The website was developed using HTML and Tailwind CSS, then integrated
+        into a WordPress environment via Elementor. you can visit at <a class="text-purple-400" href="https://academy.devatastudio.com/bfod2025/"">Devata Studio-BFOD</a>`,
+        ],
+      },
+      {
+        nama: "Sidang Panic",
+        skill: ["Ren.py", "Python", "Express.js"],
+        deskripsi: [
+          `        Sidang Panic! is a short narrative game about a student who just wants
+        to graduate in peace—but ends up facing three wildly different
+        lecturers: one chill, one chaotic, and one terrifying. What starts as a
+        normal thesis defense quickly turns into a nerve-wracking (and slightly
+        absurd) battle of confidence, where every answer matters and even
+        breathing wrong feels like a mistake. Passing is optional—surviving the
+        vibes is the real challenge.`,
+          `   Built using Ren'Py and integrated with Gemini AI to make every dialogue
+        with the lecturers dynamic and responsive.`,
+          `3rd Place Winner, National Game Hackathon – Organized by Cybertech
+        Organized by Cybertech Student Activity Unit, Politeknik Negeri Padang.
+        (2025). As the team leader of Siang Panic, I led the development and
+        handled the final pitch to the judges.`,
+        ],
+      },
+    ];
 
-  if (pasar && bfod && sp) {
-    pasar.innerHTML = p3d;
-    bfod.innerHTML = bfode;
-    sp.innerHTML = sidangpanic;
+    let isiProject = `
+    <div class="swiper swiper-main my-2 lg:my-5 overflow-hidden bg-[#212326] rounded-3xl max-w-7xl mx-auto shadow-2xl">
+      <div class="swiper-wrapper pt-5 mb-3">`;
+
+    for (let i = 0; i < projectSwiper.length; i++) {
+      const p = projectSwiper[i];
+      isiProject += `
+      <div class="swiper-slide px-4 lg:px-10"> 
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-xs lg:max-w-6xl mx-auto my-6">
+          
+          <div>
+            <div class="z-10 ring-2 ring-purple-500/30 p-5 rounded-md bg-[#1a1c1e]">
+              <div class="py-4">
+                <div class="w-full">
+                  <div class="aspect-video w-full swiper swiper-project overflow-hidden rounded-xl">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide"><img src="p3d.webp" class="w-full h-full object-cover"></div>
+                      <div class="swiper-slide"><img src="prd3.webp" class="w-full h-full object-cover"></div>
+                      <div class="swiper-slide"><img src="p3d1.webp" class="w-full h-full object-cover"></div>
+                    </div>
+                    <div class="project-pagination swiper-pagination"></div>
+                    <div class="project-next swiper-button-next !text-transparent "></div>
+                    <div class="project-prev swiper-button-prev !text-transparent "></div>
+                  </div>
+
+                  <div class="text-amber-100 font-bold flex flex-col gap-3 mt-5">
+                    <div class="font-extrabold flex gap-2 items-center bg-[#D23B7B] rounded-sm p-3 w-fit shadow-lg">
+                      <span>Project:</span>
+                      <span>${p.nama}</span>
+                    </div>
+
+                    <div class="font-extrabold flex items-center gap-2">
+                      <div class="bg-[#D23B7B] rounded-sm p-3 shadow-lg">Skills:</div>
+                      <div class="flex flex-wrap gap-2">
+                        <div class="bg-[#831C91] px-3 py-1 text-xs rounded-sm shadow-md">${p.skill[0] || ""}</div>
+                        <div class="bg-[#462C7D] px-3 py-1 text-xs rounded-sm shadow-md">${p.skill[1] || ""}</div>
+                        <div class="bg-[#FCBF49] px-3 py-1 text-xs rounded-sm shadow-md text-black">${p.skill[2] || ""}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-4 justify-center text-white/90">
+            <div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-[#D23B7B]">
+              <p class="text-xs leading-relaxed">${p.deskripsi[0]}</p>
+            </div>
+            <div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-[#831C91]">
+              <p class="text-xs leading-relaxed">${p.deskripsi[1]}</p>
+            </div>
+            <div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 border-[#462C7D]">
+              <p class="text-xs leading-relaxed">${p.deskripsi[2]}</p>
+            </div>
+          </div>
+
+        </div>
+      </div> 
+      `;
+    }
+    isiProject += `
+      </div> <div class="main-pagination swiper-pagination" style="--swiper-pagination-color: #d23b7b;"></div>
+      <div class="main-prev swiper-button-prev lg:!text-[#D23B7B] !text-transparent"></div>
+      <div class="main-next swiper-button-next lg:!text-[#D23B7B] !text-transparent"></div>
+    </div> `;
+    document.getElementById("main").innerHTML = isiProject;
+    setTimeout(() => {
+      document.querySelectorAll(".swiper-main").forEach((e) => {
+        new Swiper(e, {
+          modules: [Navigation, Pagination],
+          loop: true,
+          observer: true,
+          observeParents: true,
+          pagination: {
+            el: e.querySelector(".main-pagination"),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: e.querySelector(".main-next"),
+            prevEl: e.querySelector(".main-prev"),
+          },
+        });
+      });
+
+      document.querySelectorAll(".swiper-project").forEach((e) => {
+        new Swiper(e, {
+          modules: [Navigation, Pagination, Autoplay],
+          loop: true,
+          observer: true,
+          observeParents: true,
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: e.querySelector(".project-pagination"),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: e.querySelector(".project-next"),
+            prevEl: e.querySelector(".project-prev"),
+          },
+        });
+      });
+    }, 200);
+    // const animasi = document.getElementById("anima");
+    // const playanimasi = gsap.fromTo(
+    //   animasi,
+    //   { y: 50, opacity: 0 },
+    //   {
+    //     duration: 0.5,
+    //     y: 0,
+    //     ease: "back.out(2.5)",
+    //     opacity: 1,
+    //   },
+    // );
+    // playanimasi.play();
+
+    const rmBebek = document.getElementById("bebek");
+    if (rmBebek) rmBebek.classList.add("hidden");
+
+    const rmBg = document.getElementById("footer-placeholder");
+    if (rmBg) {
+      rmBg.classList.add(
+        "h-fit",
+        "w-fit",
+        "mx-auto",
+        "rounded-md",
+        "bg-[#212326]/70",
+        "backdrop-blur-sm",
+        "text-amber-100",
+      );
+    }
+
+    const addBg = document.getElementById("body");
+    if (addBg) {
+      addBg.classList.remove("bg-[#212326]");
+
+      addBg.classList.add("bg-[#212326]", "lg:bg-[url('/public/bgc.webp')]");
+    }
+
+    const glass = document.getElementById("glass");
+    if (glass) {
+      glass.classList.add("opacity-100", "bg-[#212326]", "lg:bg-[#212326]/70");
+    }
   }
-  const swiperMain = new Swiper(".swiper-main", {
-    modules: [Navigation, Pagination],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
-
-    pagination: { el: ".main-pagination", clickable: true },
-    navigation: {
-      nextEl: ".main-next",
-      prevEl: ".main-prev",
-    },
-  });
-
-  const swiperProject = new Swiper(".swiper-project", {
-    modules: [Navigation, Pagination, Autoplay],
-    loop: true,
-    observer: true,
-    observeParents: true,
-    watchSlidesProgress: true,
-    addIcons: false,
-
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: true,
-    },
-
-    pagination: { el: ".project-pagination", clickable: true },
-    navigation: {
-      nextEl: ".project-next",
-      prevEl: ".project-prev",
-    },
-  });
-  // const animasi = document.getElementById("anima");
-  // const playanimasi = gsap.fromTo(
-  //   animasi,
-  //   { y: 50, opacity: 0 },
-  //   {
-  //     duration: 0.5,
-  //     y: 0,
-  //     ease: "back.out(2.5)",
-  //     opacity: 1,
-  //   },
-  // );
-  // playanimasi.play();
-
-  const rmBebek = document.getElementById("bebek");
-  if (rmBebek) rmBebek.classList.add("hidden");
-
-  const rmBg = document.getElementById("footer-placeholder");
-  if (rmBg) {
-    rmBg.classList.add(
-      "h-fit",
-      "w-fit",
-      "mx-auto",
-      "rounded-md",
-      "bg-[#212326]/70",
-      "backdrop-blur-sm",
-      "text-amber-100",
-    );
-  }
-
-  const addBg = document.getElementById("body");
-  if (addBg) {
-    addBg.classList.remove("bg-[#212326]");
-
-    addBg.classList.add("bg-[#212326]", "lg:bg-[url('/public/bgc.webp')]");
-  }
-
-  const glass = document.getElementById("glass");
-  if (glass) {
-    glass.classList.add("opacity-100", "bg-[#212326]", "lg:bg-[#212326]/70");
-  }
-}
 function renderArt() {
   document.getElementById("main").innerHTML = art;
   window.scrollTo(0, 0);
@@ -250,11 +375,13 @@ function renderArt() {
   if (rmBebek) rmBebek.classList.add("hidden");
   const addBg = document.getElementById("body");
   if (addBg) {
-    addBg.classList.remove("lg:bg-[url('/public/bgc.webp')]","bg-[url('/public/bgc.webp')]");
+    addBg.classList.remove(
+      "lg:bg-[url('/public/bgc.webp')]",
+      "bg-[url('/public/bgc.webp')]",
+    );
 
     addBg.classList.add("bg-[#212326]");
   }
-
 
   setTimeout(() => {
     const swiperProject = new Swiper(".swiper-project", {
@@ -314,6 +441,8 @@ document.addEventListener("click", (e) => {
     const btnSource = document.querySelectorAll(".source");
     window.location.href = "https://github.com/DYTye";
   }
+
+
 });
 
 function bebekAwal() {
