@@ -46,7 +46,7 @@ window.addEventListener("load", () => {
   }
 });
 function ranColor() {
-  const color = ["bg-[#d23b7b]", "bg-[#831C91]", "bg-[#462C7D]"];
+  const color = ["bg-[#d23b7b]", "bg-[#831C91]", "bg-[#462C7D]", "bg-[#FCBF49]"];
   const bgColor = Math.floor(Math.random() * color.length);
   const pickColor = color[bgColor];
   return pickColor;
