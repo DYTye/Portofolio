@@ -191,7 +191,7 @@ function renderProject() {
       ],
     },
     {
-      nama: "BFOD",
+      nama: "BFOD and BFOD Wall OF Fame",
       skill: ["Wordpress", "Elementor"],
       slider: [
         "bfod1.webp",
@@ -199,6 +199,9 @@ function renderProject() {
         "bfod3.webp",
         "bfod4.webp",
         "bfod5.webp",
+        "wof.webp",
+        "wof1.webp",
+        "wof2.webp"
       ],
       deskripsi: [
         `        Battle Field of Devata (BFOD) is a national creative competition
