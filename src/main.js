@@ -191,7 +191,7 @@ function renderProject() {
       ],
     },
     {
-      nama: "BFOD and BFOD Wall OF Fame",
+      nama: "BFOD",
       skill: ["Wordpress", "Elementor"],
       slider: [
         "bfod1.webp",
