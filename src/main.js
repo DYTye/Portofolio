@@ -238,8 +238,8 @@ function renderProject() {
       ],
     },
     {
-      nama: "Automasi Pencatatan Resi Implementasi AI Mutimodal",
-      skill: ["Next.js", "Cloud Computing", "AI Implementation"],
+      nama: "Smart Recipt",
+      skill: ["Next.js", "Cloud Computing", "AI Implementation",Supabase],
       slider: ["comingsoon.jpg"],
       deskripsi: [
         `A serverless SaaS platform designed to automate financial recording for SMEs. By leveraging Multimodal AI, the system eliminates manual data entry by instantly converting receipt photos into structured financial records.`,
