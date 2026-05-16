@@ -46,12 +46,16 @@ window.addEventListener("load", () => {
   }
 });
 function ranColor() {
-  const color = ["bg-[#d23b7b]", "bg-[#831C91]", "bg-[#462C7D]", "bg-[#FCBF49]"];
+  const color = [
+    "bg-[#d23b7b]",
+    "bg-[#831C91]",
+    "bg-[#462C7D]",
+    "bg-[#FCBF49]",
+  ];
   const bgColor = Math.floor(Math.random() * color.length);
   const pickColor = color[bgColor];
   return pickColor;
 }
-
 
 function navbarRun() {
   const navItems = document.querySelectorAll(".nav-items");
@@ -166,33 +170,50 @@ function renderProject() {
 
   const projectSwiper = [
     {
+      nama: "(SaaS) Smart Receipt",
+      skill: ["Next.js","JavaScript", "Cloud Computing", "AI Implementation", "Supabase"],
+      slider: ["comingsoon.jpg"],
+      deskripsi: [
+        `Smart Receipt is an automated, mobile-first SaaS infrastructure designed to eliminate manual bookkeeping bottlenecks for micro, small, and medium enterprises (MSMEs). By leveraging serverless Multimodal AI workflows, the platform instantly processes and extracts semantic data from structural transaction receipts, converting raw image captures into precise, validated financial ledgers to mitigate human error.`,
+
+        `Architected upon a cloud-native, multi-tenant database infrastructure using Next.js for the high-performance user interface and JavaScript for core full-stack application logic. The backend operates entirely serverless, orchestrating data workflows via Supabase Edge Functions, utilizing secure Supabase Storage buckets for multi-tenant asset management, and PostgreSQL for relational financial record keeping.`, // <-- TYPOGRAPHY FIXED TO JAVASCRIPT
+
+        `Powered by the Google Gemini 1.5 Flash Multimodal API to drive high-speed data extraction token efficiency. To guarantee absolute data integrity before database insertion, I engineered a highly optimized post-processing pipeline layer utilizing custom regular expressions (Regex) and algorithmic data sanitization, ensuring deterministic output formatting across all structural transaction records.`,
+      ],
+    },
+    {
+      nama: "Sidang Panic",
+      skill: ["Ren'py", "Python", "Express.js"],
+      slider: ["sp1.webp", "sp2.webp", "sp3.webp", "sp4.webp"],
+      deskripsi: [
+        `Sidang Panic! is an interactive, short-form narrative simulation game that models the psychological high-stakes environment of a university thesis defense. Players navigate a high-stress evaluation simulation against three distinct lecturer archetypes—the laid-back, the unpredictable, and the hyper-critical—transforming a traditional academic milestone into an absurd, edge-of-your-seat battle of confidence and conditional state-driven survival.`,
+
+        `Built upon the Ren'Py engine and integrated with open-source LLM architectures sourced from Hugging Face to orchestrate dynamic, context-aware dialogue systems. By leveraging custom pipeline execution, prompt engineering, and state-driven logic, the game features highly responsive lecturer behaviors that dynamically adapt to the player's vocabulary, confidence metrics, and contextual answers in real-time.`,
+
+        `Awarded 3rd Place at the National Game Hackathon 2025, organized by the Cybertech Student Activity Unit at Politeknik Negeri Padang. Serving as the Technical Team Lead, I spearheaded the core gameplay programming, engineered the Hugging Face model integration pipeline, and successfully delivered the high-impact final technical pitch to the panel of industry judges.`,
+      ],
+    },
+    {
       nama: "Pasar 3D",
-      skill: ["Wordpress", "Elementor", "Rest-API"],
+      skill: [
+        "Wordpress",
+        "Next.js",
+        "JavaScript",
+        "WordPress REST API",
+        "Tailwind CSS",
+      ],
       slider: ["p3d.webp", "p3d1.webp", "p3d2.webp", "prd3.webp"],
       deskripsi: [
-        `Pasar3D is a premier digital marketplace built for the modern 3D
-        creator. We provide a dedicated platform where artists can showcase
-        their technical craftsmanship and turn their 3D projects into a thriving
-        business. From high-fidelity game assets to intricate architectural
-        models, we bridge the gap between creative visionaries and the global
-        industries that need them`,
-        `        Pasar3D was proudly developed during my internship at
-        <a class="text-purple-400" href="https://devatastudio.com"
-          >Devata Studio</a
-        >
-        . It began as a vision to empower fellow creators and evolved into a
-        fully-fledged marketplace. By combining the insights I gained at the
-        studio with my passion for 3D art, I’ve built a space where technical
-        quality meets commercial opportunity`,
-        `        Build with Wordpress and Elementor you can visit at
-        <span class="text-purple-400"
-          ><a href="https://pasar3d.com">Pasar3d.com</a></span
-        >`,
+        `Pasar3D is a curated digital marketplace optimized for high-fidelity 3D assets, bridging the gap between independent digital craftsmen and global interactive industries. The platform provides a production-ready ecosystem tailored for game-ready assets, complex architectural meshes, and high-quality 3D models, transforming technical craftsmanship into a sustainable commercial pipeline.`,
+
+        `Engineered during my full-stack development residency at <a class="text-purple-400 hover:underline" href="https://devatastudio.com" target="_blank" rel="noopener noreferrer">Devata Studio</a>, Pasar3D evolved from a conceptual MVP into a scalable commercial asset platform. The project demonstrates the successful integration of real-world studio requirements with a streamlined deployment workflow, establishing a high-performance workspace where technical quality meets digital commerce.`,
+
+        `Built upon a customized production stack leveraging the robust e-commerce architecture of WordPress and WooCommerce, styled with utility-first layouts for rapid deployment. Explore the production system live at <span class="text-purple-400"><a class="hover:underline" href="https://pasar3d.com" target="_blank" rel="noopener noreferrer">Pasar3d.com</a></span>.`,
       ],
     },
     {
       nama: "BFOD",
-      skill: ["Wordpress", "Elementor"],
+      skill: ["Wordpress", "Elementor", "Tailwind CSS"],
       slider: [
         "bfod1.webp",
         "bfod2.webp",
@@ -201,51 +222,14 @@ function renderProject() {
         "bfod5.webp",
         "wof.webp",
         "wof1.webp",
-        "wof2.webp"
+        "wof2.webp",
       ],
       deskripsi: [
-        `        Battle Field of Devata (BFOD) is a national creative competition
-        platform I developed during my internship at <a class="text-purple-400" href="https://devatastudio.com">Devata Studio</a>, designed to
-        showcase 2D and 3D artists across Indonesia. It functions as both a
-        competition hub and exposure platform, helping participants gain
-        visibility, build portfolios, and connect with the creative industry.`,
-        `  The website was developed by me during my internship at <a class="text-purple-400" href="https://devatastudio.com">Devata Studio</a>,
-        where I was responsible for building and implementing the platform based
-        on direction and requirements provided by the Devata team, ensuring the
-        final product aligned with their vision and competition goals.`,
-        `The website was developed using HTML and Tailwind CSS, then integrated
-        into a WordPress environment via Elementor. you can visit at <a class="text-purple-400" href="https://academy.devatastudio.com/bfod2025/"">Devata Studio-BFOD</a>`,
-      ],
-    },
-    {
-      nama: "Sidang Panic",
-      skill: ["Ren.py", "Python", "Express.js"],
-      slider: ["sp1.webp", "sp2.webp", "sp3.webp", "sp4.webp"],
-      deskripsi: [
-        `        Sidang Panic! is a short narrative game about a student who just wants
-        to graduate in peace—but ends up facing three wildly different
-        lecturers: one chill, one chaotic, and one terrifying. What starts as a
-        normal thesis defense quickly turns into a nerve-wracking (and slightly
-        absurd) battle of confidence, where every answer matters and even
-        breathing wrong feels like a mistake. Passing is optional—surviving the
-        vibes is the real challenge.`,
-        `   Built using Ren'Py and integrated with Gemini AI to make every dialogue
-        with the lecturers dynamic and responsive.`,
-        `3rd Place Winner, National Game Hackathon – Organized by Cybertech
-        Organized by Cybertech Student Activity Unit, Politeknik Negeri Padang.
-        (2025). As the team leader of Siang Panic, I led the development and
-        handled the final pitch to the judges.`,
-      ],
-    },
-    {
-      nama: "Smart Recipt",
-      skill: ["Next.js", "Cloud Computing", "AI Implementation","Supabase"],
-      slider: ["comingsoon.jpg"],
-      deskripsi: [
-        `A serverless SaaS platform designed to automate financial recording for SMEs. By leveraging Multimodal AI, the system eliminates manual data entry by instantly converting receipt photos into structured financial records.`,
-        `Built with a modern serverless architecture using Next.js for the frontend and Supabase Edge Functions for logic. It utilizes Supabase Storage for secure image hosting and PostgreSQL for scalable, multi-tenant data management.`,
-        `Powered by the Gemini 1.5 Flash API to extract key transaction data. I implemented a custom Post-Processing layer using Regex and data sanitization to ensure high-precision output and consistent data formatting before database insertion.`,
-        `This project bridges the digital gap for small businesses by reducing human error and streamlining bookkeeping. It provides a mobile-first, automated solution that allows business owners to focus on growth rather than administrative tasks.`,
+        `Battle Field of Devata (BFOD) is a nationwide creative tournament infrastructure designed to aggregate and showcase elite 2D and 3D digital artists across Indonesia. The platform serves as a high-exposure digital hub that connects emerging creative talents with industry-standard production pipelines, driving participant visibility and professional portfolio acceleration.`,
+
+        `Engineered during my full-stack development residency at <a class="text-purple-400 hover:underline" href="https://devatastudio.com" target="_blank" rel="noopener noreferrer">Devata Studio</a>, I was fully responsible for translating product requirements into a production-ready, highly interactive landing page. The deployment focused heavily on visual storytelling and UI/UX optimization to maximize user engagement and streamline competition registration workflows.`,
+
+        `Built upon a customized WordPress environment, utilizing Tailwind CSS for custom utility-first UI styling and high-fidelity layouts for rapid product delivery. Explore the live platform architecture at <span class="text-purple-400"><a class="hover:underline" href="https://academy.devatastudio.com/bfod2025/" target="_blank" rel="noopener noreferrer">Devata Studio - BFOD</a></span>.`,
       ],
     },
   ];
@@ -261,7 +245,7 @@ function renderProject() {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-xs lg:max-w-6xl mx-auto my-6">
           
           <div>
-            <div class="z-10 ring-2 ${ranColor().replace("bg-","ring-")} p-5 rounded-md bg-[#1a1c1e]">
+            <div class="z-10 ring-2 ${ranColor().replace("bg-", "ring-")} p-5 rounded-md bg-[#1a1c1e]">
               <div class="py-4">
                 <div class="w-full">
                   <div class="aspect-video w-full swiper swiper-project overflow-hidden rounded-xl">
@@ -292,7 +276,7 @@ function renderProject() {
           </div>
 
           <div class="flex flex-col gap-4 justify-center text-white/90">
-            ${p.deskripsi.map((myDeskripsi) => `<div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 ${ranColor().replace("bg-","border-")}"><div class="text-xs leading-relaxed">${myDeskripsi}</div></div>`).join("")} 
+            ${p.deskripsi.map((myDeskripsi) => `<div class="bg-[#2a2d32] p-4 rounded-lg border-l-4 ${ranColor().replace("bg-", "border-")}"><div class="text-xs leading-relaxed">${myDeskripsi}</div></div>`).join("")} 
           </div>
 
         </div>
