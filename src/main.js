@@ -171,7 +171,13 @@ function renderProject() {
   const projectSwiper = [
     {
       nama: "(SaaS) Smart Receipt",
-      skill: ["Next.js","JavaScript", "Cloud Computing", "AI Implementation", "Supabase"],
+      skill: [
+        "Next.js",
+        "JavaScript",
+        "Cloud Computing",
+        "AI Implementation",
+        "Supabase",
+      ],
       slider: ["comingsoon.jpg"],
       deskripsi: [
         `Smart Receipt is an automated, mobile-first SaaS infrastructure designed to eliminate manual bookkeeping bottlenecks for micro, small, and medium enterprises (MSMEs). By leveraging serverless Multimodal AI workflows, the platform instantly processes and extracts semantic data from structural transaction receipts, converting raw image captures into precise, validated financial ledgers to mitigate human error.`,
