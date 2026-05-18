@@ -425,7 +425,11 @@ function renderSetup() {
   }
   const addBg = document.getElementById("body");
   if (addBg) {
-    addBg.classList.remove("bg-[url('/public/bgc.webp')]");
+    addBg.classList.remove(
+      "lg:bg-[url('/public/bgc.webp')]",
+      "bg-[url('/public/bgc.webp')]",
+    );
+
     addBg.classList.add("bg-[#212326]");
   }
   window.scrollTo(0, 0);
