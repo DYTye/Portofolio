@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Marked in the browser</title>
+</head>
+<body>
+  <div id="content"></div>
+  <div id="judul"></div>
+  <div id="md"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+  <script>
+
+    async function bacaMd(){
+        const hasil = await fetch ("baca.md");
+        const text = await hasil.text();
+
+        const split = text.split("---");
+        const metadata = split[1];
+        const judul = metadata.split('\n');
+        const judulAja = judul[2];
+
+        const judulMurni = judulAja.replace("title:","")
+
+        const isiKonten = split [2];
+        
+    
+        document.getElementById("judul").innerHTML = marked.parse(judulMurni)
+        document.getElementById("md").innerHTML = marked.parse(isiKonten)
+    }
+    bacaMd()
+    
+    
+  </script>
+</body>
+</html>

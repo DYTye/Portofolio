@@ -10,10 +10,12 @@ import p3d from "./assets/project/pasar3d.html?raw";
 import sidangpanic from "./assets/project/sidangpanic.html?raw";
 import setup from "./setup.html?raw";
 import bfode from "./assets/project/bfod.html?raw";
+import blog from "./assets/blog/blogHome.html?raw";
 import Swiper from "swiper";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { gsap } from "gsap";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -55,6 +57,54 @@ function ranColor() {
   const bgColor = Math.floor(Math.random() * color.length);
   const pickColor = color[bgColor];
   return pickColor;
+}
+function removeBebek() {
+  const rmBebek = document.getElementById("bebek");
+  if (rmBebek) rmBebek.classList.add("hidden");
+}
+function rmAddBg() {
+  const addBg = document.getElementById("body");
+  if (addBg) {
+    addBg.classList.remove(
+      "lg:bg-[url('/public/bgc.webp')]",
+      "bg-[url('/public/bgc.webp')]",
+    );
+
+    addBg.classList.add("bg-[#212326]");
+  }
+}
+async function bacaMd() {
+  const hasil = await fetch(
+    "/posts/blog/2026-05-20-urek-nan-layu-takikih-zaman.md",
+  );
+  const text = await hasil.text();
+
+  const split = text.split("---");
+  const metadata = split[1];
+  const judul = metadata.split("\n");
+  const judulAja = judul[2];
+
+  const mdGambar = judul[4];
+  const gambarMurni = mdGambar.replace("thumbnail:","")
+
+  const judulMurni = judulAja.replace("title:", "");
+
+  const isiKonten = split[2];
+  const kontenRapi = isiKonten.split("\n").filter(Boolean);
+  const konten = kontenRapi
+    .map(
+      (paragraf) =>
+        `<div class="text-white/90 m-5">${marked.parse(paragraf)}</div>`,
+    )
+    .join("");
+  
+  document.getElementById("gambar").innerHTML = `<img
+      src="${gambarMurni}"
+      alt="gambar"
+      class="w-full h-100 object-cover"
+    />`;
+  document.getElementById("judul").innerHTML = marked.parse(judulMurni);
+  document.getElementById("isi").innerHTML = konten;
 }
 
 function navbarRun() {
@@ -347,8 +397,7 @@ function renderProject() {
   );
   playanimasi.play();
 
-  const rmBebek = document.getElementById("bebek");
-  if (rmBebek) rmBebek.classList.add("hidden");
+  removeBebek();
 
   const rmBg = document.getElementById("footer-placeholder");
   if (rmBg) {
@@ -381,15 +430,8 @@ function renderArt() {
   swiperDestroy();
   const rmBebek = document.getElementById("bebek");
   if (rmBebek) rmBebek.classList.add("hidden");
-  const addBg = document.getElementById("body");
-  if (addBg) {
-    addBg.classList.remove(
-      "lg:bg-[url('/public/bgc.webp')]",
-      "bg-[url('/public/bgc.webp')]",
-    );
 
-    addBg.classList.add("bg-[#212326]");
-  }
+  rmAddBg();
 
   setTimeout(() => {
     const swiperProject = new Swiper(".swiper-project", {
@@ -419,21 +461,16 @@ function renderSetup() {
   const btnSetup = document.querySelectorAll(".setup");
   document.getElementById("main").innerHTML = setup;
 
-  const hidebebek = document.getElementById("bebek");
-  if (hidebebek) {
-    hidebebek.classList.add("hidden");
-  }
-  const addBg = document.getElementById("body");
-  if (addBg) {
-    addBg.classList.remove(
-      "lg:bg-[url('/public/bgc.webp')]",
-      "bg-[url('/public/bgc.webp')]",
-    );
-
-    addBg.classList.add("bg-[#212326]");
-  }
+  rmAddBg();
+  removeBebek();
   window.scrollTo(0, 0);
 }
+function renderBlog() {
+  const btnBlog = document.querySelectorAll(".mind");
+  if (btnBlog) {
+    document.getElementById("main").innerHTML = blog;
+  };
+};
 
 document.addEventListener("click", (e) => {
   if (e.target.closest(".lofi")) {
@@ -452,6 +489,13 @@ document.addEventListener("click", (e) => {
   if (e.target.closest(".source")) {
     const btnSource = document.querySelectorAll(".source");
     window.location.href = "https://github.com/DYTye";
+  }
+  if (e.target.closest(".mind")) {
+    renderBlog();
+
+    bacaMd();
+    removeBebek();
+    rmAddBg();
   }
 });
 
@@ -491,3 +535,5 @@ if (animasiBebek) {
     }, 2000);
   });
 }
+
+//////////////////////////// Blog Function//////////////////////////////////
