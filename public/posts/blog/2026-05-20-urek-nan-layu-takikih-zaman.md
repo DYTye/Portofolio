@@ -2,7 +2,7 @@
 layout: blog
 title: UREK NAN LAYU TAKIKIH ZAMAN
 date: 2026-05-20T22:50:00.000+07:00
-thumbnail: /uploads/anime-girl-short-hair-4k-wallpaper-uhdpaper.com-130-5-k.jpg
+thumbnail: /uploads/rumah-adat-minang-kabau.jpg
 rating: 5
 ---
 
