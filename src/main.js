@@ -85,7 +85,7 @@ async function bacaMd() {
   const judulAja = judul[2];
 
   const mdGambar = judul[4];
-  const gambarMurni = mdGambar.replace("thumbnail:","")
+  const gambarMurni = mdGambar.replace("thumbnail:", "");
 
   const judulMurni = judulAja.replace("title:", "");
 
@@ -97,7 +97,7 @@ async function bacaMd() {
         `<div class="text-white/90 m-5">${marked.parse(paragraf)}</div>`,
     )
     .join("");
-  
+
   document.getElementById("gambar").innerHTML = `<img
       src="${gambarMurni}"
       alt="gambar"
@@ -469,8 +469,22 @@ function renderBlog() {
   const btnBlog = document.querySelectorAll(".mind");
   if (btnBlog) {
     document.getElementById("main").innerHTML = blog;
-  };
-};
+  }
+
+  const btnMore = document.getElementById("more");
+  btnMore.addEventListener("click", () => {
+    const isiFull = document.getElementById("isi");
+    if (isiFull) isiFull.classList.toggle("line-clamp-2");
+
+    const moreOrLess = isiFull.classList.contains("line-clamp-2");
+    if (moreOrLess){
+      btnMore.innerText = "Show More"
+    }
+    else{
+      btnMore.innerText = "Show Less"
+    }
+  });
+}
 
 document.addEventListener("click", (e) => {
   if (e.target.closest(".lofi")) {
