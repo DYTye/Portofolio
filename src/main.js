@@ -251,7 +251,7 @@ function renderProject() {
 
         `The system implements reliable state persistence using browser Local Storage to prevent data loss upon refreshing the page. By leveraging optimized React hooks and strict useEffect lifecycles, the quiz engine successfully decouples real-time countdown timers from the dynamic array shuffling logic, ensuring consistent option layouts and preventing memory leaks`,
 
-        `You can visit at <span class="text-purple-400"><a class="hover:underline" href="kuis.diditturbo.web.id" target="_blank" rel="noopener noreferrer">kuis.diditturbo.web.id</a></span>.`,
+        `You can visit at <span class="text-purple-400"> <a class="hover:underline" href="https://kuis.diditturbo.web.id" target="_blank" rel="noopener noreferrer">kuis.diditturbo.web.id</a></span>.`,
       ],
     },
   ];
