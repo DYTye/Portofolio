@@ -238,6 +238,22 @@ function renderProject() {
         `Built upon a customized WordPress environment, utilizing Tailwind CSS for custom utility-first UI styling and high-fidelity layouts for rapid product delivery. Explore the live platform architecture at <span class="text-purple-400"><a class="hover:underline" href="https://academy.devatastudio.com/bfod2025/" target="_blank" rel="noopener noreferrer">Devata Studio - BFOD</a></span>.`,
       ],
     },
+    {
+      nama: "Quiz With Frankk!!",
+      skill: ["React.js", "Tailwind CSS"],
+      slider: [
+        "kz1.png",
+        "kz2.png",
+        "kz3.png",
+      ],
+      deskripsi: [
+        `Developed a responsive quiz web application built using React and React Router, styled with Tailwind CSS. The application features an interactive question-and-answer interface that provides dynamic visual feedback and conditional image assets based on the user's final quiz score.`,
+
+        `The system implements reliable state persistence using browser Local Storage to prevent data loss upon refreshing the page. By leveraging optimized React hooks and strict useEffect lifecycles, the quiz engine successfully decouples real-time countdown timers from the dynamic array shuffling logic, ensuring consistent option layouts and preventing memory leaks`,
+
+        `You can visit at <span class="text-purple-400"><a class="hover:underline" href="kuis.diditturbo.web.id" target="_blank" rel="noopener noreferrer">kuis.diditturbo.web.id</a></span>.`,
+      ],
+    },
   ];
 
   let isiProject = `
