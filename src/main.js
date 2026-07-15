@@ -172,19 +172,18 @@ function renderProject() {
     {
       nama: "(SaaS) Smart Receipt",
       skill: [
-        "Next.js",
-        "JavaScript",
+        "React",
         "Cloud Computing",
         "AI Implementation",
         "Supabase",
       ],
-      slider: ["comingsoon.jpg"],
+      slider: ["sr.png","sr1.png","sr2.png",],
       deskripsi: [
         `Smart Receipt is an automated, mobile-first SaaS infrastructure designed to eliminate manual bookkeeping bottlenecks for micro, small, and medium enterprises (MSMEs). By leveraging serverless Multimodal AI workflows, the platform instantly processes and extracts semantic data from structural transaction receipts, converting raw image captures into precise, validated financial ledgers to mitigate human error.`,
 
         `Architected upon a cloud-native, multi-tenant database infrastructure using Next.js for the high-performance user interface and JavaScript for core full-stack application logic. The backend operates entirely serverless, orchestrating data workflows via Supabase Edge Functions, utilizing secure Supabase Storage buckets for multi-tenant asset management, and PostgreSQL for relational financial record keeping.`, // <-- TYPOGRAPHY FIXED TO JAVASCRIPT
 
-        `Powered by the Google Gemini 1.5 Flash Multimodal API to drive high-speed data extraction token efficiency. To guarantee absolute data integrity before database insertion, I engineered a highly optimized post-processing pipeline layer utilizing custom regular expressions (Regex) and algorithmic data sanitization, ensuring deterministic output formatting across all structural transaction records.`,
+        `Powered by the Google Gemini 2.5 Flash Multimodal API to drive high-speed data extraction token efficiency. Try at smartreceipt.diditturbo.web.id`,
       ],
     },
     {
